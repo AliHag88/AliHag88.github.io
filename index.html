@@ -11,18 +11,67 @@ table {
     border-spacing: 15px;
 }
 </style>
+
+
 </head>
-<body>
 
-<h1>
-Ali Hagverdiyev
-</h1>
+<style>
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    width: 230px;
+    position: fixed;
+    z-index: 1;
+    top: 250px;
+    left: 10px;
+    background: white;
+    overflow-x: hidden;
+    padding: 8px 0;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #2196F3;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #064579;
+}
+
+.main {
+    margin-left: 440px; /* Same width as the sidebar + left position in px */
+    font-size: 17px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+</style>
 
 
-<table style="width:100%">
+<body bgcolor="white">
+
+
+
+
+
+<img src="mmm1.gif" width="900" height="300" alt="..." title="..."
+style="display:block;margin-left:auto; margin-right:auto;" />
+
+
+<!--    THIS PART IS COMMENTED
+
+<table style="width:100%" bgcolor="D8F2EF">
   <tr>
-    <td> <a> Teaching </a> </td>
-    <td> CV </td> 
+    <td> <a href="Teaching.html"> Teaching </a> </td>
+    <td> <a href="CV.pdf"> CV </a> </td> 
     <td> AMS Chapter </td>
   </tr>
   <tr>
@@ -30,17 +79,41 @@ Ali Hagverdiyev
     <td>Publications</td>
     <td> Conferences </td>
   </tr>
-</table>
+</table>     -->
+
+
+<h1 style="text-align:center; color:gray;" > <i> Ali Hagverdiyev </i> </h1>
+<h1 style="text-align:center; color:green;" > <i> Bio </i> </h1>
+
+<div class="sidenav">
+<ul>
+<br></br>
+<li> <a href="Office Hours.html">Office Hours</a> </li>  
+<br></br>
+<li> <a href="Publications.html">Publications</a> </li>
+<br></br>
+<li> <a href="Conferences.html">Conferences</a> </li>
+<br></br>
+<li> <a href="teaching.html">Teaching</a> </li>
+<br></br>
+<li> <a href="posts.html">AMS Chapter</a> </li>
+<br></br>
+<li> <a href="cv.pdf">CV</a> </li>
+</ul> 
+</div>
 
 
 
 
+  
+ 
 
-
-
-
-
-
+ <div class="main">
+<p> I am pursuing my PhD studies in Applied Mathematics at Florida Institute Of Technology <br>
+under supervision of Prof. Dr. Ugur G Abdulla. I earned my Bachelors Degree from Baku <br> 
+State University (Baku, Azerbaijan) and my Masters Degree from University Of Nottingham <br>
+(Nottingham, UK). </p> 
+</div>
 
 
 
