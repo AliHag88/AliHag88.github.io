@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ali Hagverdiyev, PhD — Curriculum Vitae</title>
+  <title>Curriculum Vitae — Ali Hagverdiyev, PhD</title>
   <style>
     :root {
       --sidebar-bg: #1e3a8a;
       --sidebar-text: #ffffff;
       --sidebar-muted: #bfdbfe;
-      --accent: #2563eb;
-      --accent-hover: #1d4ed8;
       --bg: #f1f5f9;
       --text: #1e293b;
       --border: #cbd5e1;
@@ -30,15 +28,15 @@
       overflow: hidden;
     }
 
-    /* Main Two-Column Layout */
-    .page-layout {
+    /* Two-Column Page Wrapper */
+    .cv-page-layout {
       display: flex;
       height: 100vh;
       width: 100vw;
     }
 
-    /* Left Panel */
-    .left-panel {
+    /* Left Column */
+    .left-column {
       width: 300px;
       min-width: 260px;
       background-color: var(--sidebar-bg);
@@ -67,52 +65,35 @@
       font-size: 0.85rem;
       color: var(--sidebar-muted);
       margin-bottom: 24px;
+      line-height: 1.45;
     }
 
-    .nav-actions {
+    .nav-links {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin-top: 12px;
     }
 
-    .btn-cv {
-      width: 100%;
-      padding: 12px 16px;
-      background-color: #ffffff;
-      color: var(--sidebar-bg);
-      border: none;
+    .nav-item {
+      display: block;
+      padding: 11px 16px;
       border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-align: left;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: transform 0.15s, background-color 0.2s;
-    }
-
-    .btn-cv:hover {
-      background-color: #eff6ff;
-      transform: translateY(-1px);
-    }
-
-    .btn-secondary-nav {
-      width: 100%;
-      padding: 10px 16px;
-      background-color: rgba(255, 255, 255, 0.12);
+      font-size: 0.92rem;
+      font-weight: 500;
+      text-decoration: none;
       color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      font-size: 0.88rem;
-      cursor: pointer;
-      text-align: left;
+      background-color: rgba(255, 255, 255, 0.1);
       transition: background-color 0.2s;
     }
 
-    .btn-secondary-nav:hover {
+    .nav-item:hover {
       background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-item.active {
+      background-color: #ffffff;
+      color: var(--sidebar-bg);
+      font-weight: 600;
     }
 
     .contact-info {
@@ -132,68 +113,13 @@
       text-decoration: underline;
     }
 
-    /* Right Panel */
-    .right-panel {
+    /* Right Column: Immediate PDF Viewer */
+    .right-column {
       flex: 1;
       display: flex;
       flex-direction: column;
       height: 100vh;
       background-color: var(--bg);
-    }
-
-    /* Initial Landing State before clicking */
-    .welcome-view {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px;
-    }
-
-    .welcome-card {
-      background: #ffffff;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      max-width: 480px;
-    }
-
-    .welcome-card h2 {
-      font-size: 1.35rem;
-      margin-bottom: 10px;
-    }
-
-    .welcome-card p {
-      color: #64748b;
-      font-size: 0.95rem;
-      line-height: 1.5;
-      margin-bottom: 24px;
-    }
-
-    .btn-primary {
-      background-color: var(--accent);
-      color: #ffffff;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-
-    .btn-primary:hover {
-      background-color: var(--accent-hover);
-    }
-
-    /* PDF Viewer State (Hidden until clicked) */
-    .pdf-view {
-      display: none;
-      flex-direction: column;
-      height: 100%;
-      width: 100%;
     }
 
     .pdf-toolbar {
@@ -217,49 +143,50 @@
     }
 
     .btn-small {
-      padding: 6px 12px;
+      padding: 6px 14px;
       font-size: 0.85rem;
       border-radius: 6px;
       border: 1px solid var(--border);
       background: #f8fafc;
       color: var(--text);
-      cursor: pointer;
       text-decoration: none;
+      font-weight: 500;
     }
 
     .btn-small:hover {
       background: #e2e8f0;
     }
 
-    iframe {
+    .pdf-viewer {
       flex: 1;
       width: 100%;
+      height: 100%;
       border: none;
     }
 
-    /* Responsive mobile layout */
+    /* Responsive Mobile Stacking */
     @media (max-width: 768px) {
       body {
         overflow: auto;
         height: auto;
       }
-      .page-layout {
+      .cv-page-layout {
         flex-direction: column;
         height: auto;
       }
-      .left-panel {
+      .left-column {
         width: 100%;
       }
-      .right-panel {
-        height: 80vh;
+      .right-column {
+        height: 85vh;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page-layout">
-    <!-- Left Panel -->
-    <aside class="left-panel">
+  <div class="cv-page-layout">
+    <!-- Left Column -->
+    <aside class="left-column">
       <div>
         <div class="profile-header">
           <h1>Ali Hagverdiyev, PhD</h1>
@@ -267,17 +194,10 @@
           <div class="dept">Department of Mathematics<br />University of Miami</div>
         </div>
 
-        <div class="nav-actions">
-          <button type="button" class="btn-cv" id="openCvSidebarBtn">
-            <span>Open CV (PDF)</span>
-            <span>&rarr;</span>
-          </button>
-
-          <button type="button" class="btn-secondary-nav" id="selectLocalPdfBtn">
-            Choose Local PDF File...
-          </button>
-          <input type="file" id="localPdfInput" accept="application/pdf,.pdf" hidden />
-        </div>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-item">Home</a>
+          <a href="cv.html" class="nav-item active">Curriculum Vitae</a>
+        </nav>
       </div>
 
       <div class="contact-info">
@@ -287,91 +207,22 @@
       </div>
     </aside>
 
-    <!-- Right Main Area -->
-    <main class="right-panel">
-      <!-- Initial View -->
-      <div class="welcome-view" id="welcomeView">
-        <div class="welcome-card">
-          <h2>Curriculum Vitae</h2>
-          <p>Click below to open the full PDF document alongside the profile panel.</p>
-          <button type="button" class="btn-primary" id="openCvCenterBtn">Open CV (PDF)</button>
+    <!-- Right Column: CV_Git.pdf loaded at once -->
+    <main class="right-column">
+      <div class="pdf-toolbar">
+        <span>Curriculum Vitae (CV_Git.pdf)</span>
+        <div class="toolbar-actions">
+          <a href="CV_Git.pdf" target="_blank" class="btn-small">Open in New Tab</a>
+          <a href="CV_Git.pdf" download="CV_Git.pdf" class="btn-small">Download PDF</a>
         </div>
       </div>
 
-      <!-- PDF Split-Screen View -->
-      <div class="pdf-view" id="pdfView">
-        <div class="pdf-toolbar">
-          <span id="pdfTitle">CV_Git.pdf</span>
-          <div class="toolbar-actions">
-            <a id="downloadLink" href="CV_Git.pdf" download class="btn-small">Download PDF</a>
-            <button type="button" class="btn-small" id="closePdfBtn">Close</button>
-          </div>
-        </div>
-        <iframe id="pdfFrame" title="Curriculum Vitae PDF"></iframe>
-      </div>
+      <iframe
+        src="CV_Git.pdf"
+        class="pdf-viewer"
+        title="Ali Hagverdiyev Curriculum Vitae">
+      </iframe>
     </main>
   </div>
-
-  <script>
-    // Set the filename of your compiled CV PDF located in the same folder as this HTML file
-    const DEFAULT_CV_PATH = "CV_Git.pdf";
-
-    const welcomeView = document.getElementById("welcomeView");
-    const pdfView = document.getElementById("pdfView");
-    const pdfFrame = document.getElementById("pdfFrame");
-    const pdfTitle = document.getElementById("pdfTitle");
-    const downloadLink = document.getElementById("downloadLink");
-
-    const openCvSidebarBtn = document.getElementById("openCvSidebarBtn");
-    const openCvCenterBtn = document.getElementById("openCvCenterBtn");
-    const closePdfBtn = document.getElementById("closePdfBtn");
-    const selectLocalPdfBtn = document.getElementById("selectLocalPdfBtn");
-    const localPdfInput = document.getElementById("localPdfInput");
-
-    let currentBlobUrl = null;
-
-    function showPdf(url, fileName) {
-      pdfFrame.src = url;
-      pdfTitle.textContent = fileName;
-      downloadLink.href = url;
-      downloadLink.download = fileName;
-
-      welcomeView.style.display = "none";
-      pdfView.style.display = "flex";
-    }
-
-    // Open default PDF when either button is clicked
-    openCvSidebarBtn.addEventListener("click", () => {
-      showPdf(DEFAULT_CV_PATH, DEFAULT_CV_PATH);
-    });
-
-    openCvCenterBtn.addEventListener("click", () => {
-      showPdf(DEFAULT_CV_PATH, DEFAULT_CV_PATH);
-    });
-
-    // Allow selecting any PDF from your computer
-    selectLocalPdfBtn.addEventListener("click", () => {
-      localPdfInput.click();
-    });
-
-    localPdfInput.addEventListener("change", () => {
-      const file = localPdfInput.files[0];
-      if (!file) return;
-
-      if (currentBlobUrl) {
-        URL.revokeObjectURL(currentBlobUrl);
-      }
-
-      currentBlobUrl = URL.createObjectURL(file);
-      showPdf(currentBlobUrl, file.name);
-    });
-
-    // Return to welcome card
-    closePdfBtn.addEventListener("click", () => {
-      pdfView.style.display = "none";
-      welcomeView.style.display = "flex";
-      pdfFrame.src = "";
-    });
-  </script>
 </body>
 </html>
