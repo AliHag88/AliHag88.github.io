@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curriculum Vitae — Ali Hagverdiyev, PhD</title>
+  <style>
+    :root {
+      --sidebar-bg: #1e3a8a;
+      --sidebar-text: #ffffff;
+      --sidebar-muted: #bfdbfe;
+      --bg: #f1f5f9;
+      --text: #1e293b;
+      --border: #cbd5e1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Two-Column Page Wrapper */
+    .cv-page-layout {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    /* Left Column */
+    .left-column {
+      width: 300px;
+      min-width: 260px;
+      background-color: var(--sidebar-bg);
+      color: var(--sidebar-text);
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 2px 0 12px rgba(0, 0, 0, 0.08);
+      z-index: 10;
+    }
+
+    .profile-header h1 {
+      font-size: 1.45rem;
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    .profile-header .role {
+      font-size: 0.95rem;
+      color: var(--sidebar-muted);
+      margin-bottom: 4px;
+    }
+
+    .profile-header .dept {
+      font-size: 0.85rem;
+      color: var(--sidebar-muted);
+      margin-bottom: 24px;
+      line-height: 1.45;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .nav-item {
+      display: block;
+      padding: 11px 16px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: background-color 0.2s;
+    }
+
+    .nav-item:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-item.active {
+      background-color: #ffffff;
+      color: var(--sidebar-bg);
+      font-weight: 600;
+    }
+
+    .contact-info {
+      font-size: 0.85rem;
+      color: var(--sidebar-muted);
+      line-height: 1.7;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      padding-top: 18px;
+    }
+
+    .contact-info a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Right Column: Immediate PDF Viewer */
+    .right-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      background-color: var(--bg);
+    }
+
+    .pdf-toolbar {
+      height: 52px;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .pdf-toolbar span {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-small {
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .btn-small:hover {
+      background: #e2e8f0;
+    }
+
+    .pdf-viewer {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Responsive Mobile Stacking */
+    @media (max-width: 768px) {
+      body {
+        overflow: auto;
+        height: auto;
+      }
+      .cv-page-layout {
+        flex-direction: column;
+        height: auto;
+      }
+      .left-column {
+        width: 100%;
+      }
+      .right-column {
+        height: 85vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-page-layout">
+    <!-- Left Column -->
+    <aside class="left-column">
+      <div>
+        <div class="profile-header">
+          <h1>Ali Hagverdiyev, PhD</h1>
+          <div class="role">Applied Mathematics</div>
+          <div class="dept">Department of Mathematics<br />University of Miami</div>
+        </div>
+
+        <nav class="nav-links">
+          <a href="index.html" class="nav-item">Home</a>
+          <a href="cv.html" class="nav-item active">Curriculum Vitae</a>
+        </nav>
+      </div>
+
+      <div class="contact-info">
+        <div>Miami, Florida</div>
+        <div><a href="mailto:a.hagverdiyev@miami.edu">a.hagverdiyev@miami.edu</a></div>
+        <div><a href="https://linkedin.com" target="_blank">://linkedin.com</a></div>
+      </div>
+    </aside>
+
+    <!-- Right Column: CV_Git.pdf loaded at once -->
+    <main class="right-column">
+      <div class="pdf-toolbar">
+        <span>Curriculum Vitae (CV_Git.pdf)</span>
+        <div class="toolbar-actions">
+          <a href="CV_Git.pdf" target="_blank" class="btn-small">Open in New Tab</a>
+          <a href="CV_Git.pdf" download="CV_Git.pdf" class="btn-small">Download PDF</a>
+        </div>
+      </div>
+
+      <iframe
+        src="CV_Git.pdf"
+        class="pdf-viewer"
+        title="Ali Hagverdiyev Curriculum Vitae">
+      </iframe>
+    </main>
+  </div>
+</body>
+</html>
