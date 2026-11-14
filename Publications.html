@@ -1,22 +1,326 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications | Dr. Ali Hagverdiyev</title>
+  
+  <!-- Google Fonts for a scholarly pairing: Merriweather (Serif) + Inter (Sans-Serif) -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com" rel="stylesheet">
 
-<html>
+  <style>
+    :root {
+      /* University of Miami inspired refined palette */
+      --primary-color: #005030;      /* Deep Institutional Green */
+      --accent-color: #f47321;       /* Subtle Academic Orange Accent */
+      --text-main: #222222;          /* High-contrast charcoal for readability */
+      --text-muted: #555555;         /* Secondary metadata text */
+      --bg-page: #f8f9fa;            /* Light off-white page background */
+      --bg-card: #ffffff;            /* Crisp white content area */
+      --border-light: #e2e8f0;       /* Subtle structural dividers */
+    }
 
-<h1 style="color:blue"; align="center"> Publications </h1> 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
- <p style="font-size:120%">  1. Optimal Control of Coefficients in Parabolic Free Boundary Problems Modeling Laser Ablation. (joint
-with Ugur G Abdulla and Jonathan Goldfarb, submitted in May 2019), </p> 
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.7;
+      font-size: 16px;
+    }
 
-<p style="font-size:120%">  2. Gradient Method in Hilbert-Besov Spaces for the Optimal Control of Parabolic Free Boundary Problems, </p>  
+    /* Main Centered Container */
+    .page-wrapper {
+      max-width: 1150px;
+      margin: 30px auto;
+      background-color: var(--bg-card);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      border-top: 4px solid var(--accent-color);
+    }
 
-<p style="font-size:120%"> <i> Journal of Computational and Applied Mathematics, Volume 346, 15 January 2019, Pages 84-109 (joint with Ugur G. Abdulla, Vladislav Bukshtynov)</i> <p>
+    /* Three-Column Faculty Layout */
+    .content-grid {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 40px;
+      gap: 40px;
+    }
 
-<p style="font-size:120%">  3. On Long-Time Dynamics of the Solution of Doubly Nonlinear Equation (joint with E. Novruzov), </p>  
+    /* Left Sidebar Navigation */
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      border-right: 1px solid var(--border-light);
+      padding-right: 25px;
+    }
 
-<p style="font-size:120%">  4. On the behavior of the solution of the dissipative Camassa-Holm equation with the arbitrary dispersion
-coefficient, </p>  
+    .nav-list {
+      list-style: none;
+    }
 
-<p style="font-size:120%"> <i> Journal of Differential Equations V.257, pp. 4525-4541, 2014 (joint with E.Novruzov ) </i> <p>
+    .nav-list li {
+      margin-bottom: 8px;
+    }
 
+    .nav-list a {
+      display: block;
+      padding: 10px 14px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 500;
+      font-size: 15px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
 
+    .nav-list a:hover {
+      background-color: #f0f4f2;
+      color: var(--primary-color);
+      padding-left: 18px;
+    }
+
+    .nav-list a.active {
+      background-color: var(--primary-color);
+      color: #ffffff;
+    }
+
+    /* Center Main Content Area */
+    .main-content {
+      flex: 1;
+    }
+
+    .faculty-header {
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .faculty-name {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+    }
+
+    .faculty-title {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .section-heading {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 20px;
+      color: var(--text-main);
+      margin-bottom: 20px;
+    }
+
+    /* Publications List Styling */
+    .pub-list {
+      list-style-position: outside;
+      padding-left: 22px;
+    }
+
+    .pub-item {
+      margin-bottom: 20px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border-light);
+      color: #333333;
+    }
+
+    .pub-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .pub-title {
+      font-weight: 600;
+      color: var(--text-main);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .pub-authors {
+      font-size: 15px;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .pub-journal {
+      font-size: 15px;
+      color: var(--text-main);
+    }
+
+    .pub-journal em {
+      color: var(--primary-color);
+    }
+
+    /* Right Profile Photo Column */
+    .profile-column {
+      width: 250px;
+      flex-shrink: 0;
+    }
+
+    .profile-column img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      border: 1px solid var(--border-light);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      object-fit: cover;
+    }
+
+    /* Footer */
+    .site-footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      background-color: #f8f9fa;
+      border-top: 1px solid var(--border-light);
+    }
+
+    /* Mobile & Tablet Responsiveness */
+    @media screen and (max-width: 900px) {
+      .content-grid {
+        flex-wrap: wrap;
+      }
+
+      .profile-column {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .page-wrapper {
+        margin: 0;
+        border-radius: 0;
+        border: none;
+        border-top: 4px solid var(--accent-color);
+      }
+
+      .content-grid {
+        flex-direction: column;
+        padding: 25px;
+        gap: 25px;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+        padding-right: 0;
+        padding-bottom: 15px;
+      }
+
+      .nav-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .nav-list li {
+        margin-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper">
+    <!-- Main Layout -->
+    <div class="content-grid">
+      
+      <!-- Left Sidebar Navigation -->
+      <nav class="sidebar" aria-label="Faculty Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Bio</a></li>
+          <li><a href="OfficeHours.html">Office Hours</a></li>
+          <li><a href="Publications.html" class="active">Publications</a></li>
+          <li><a href="Conferences.html">Conferences</a></li>
+          <li><a href="Teaching.html">Teaching</a></li>
+          <li><a href="AMSChapter.html">AMS Chapter</a></li>
+          <li><a href="CV.pdf" target="_blank">CV</a></li>
+        </ul>
+      </nav>
+
+      <!-- Center Main Publications Section -->
+      <main class="main-content">
+        <div class="faculty-header">
+          <h1 class="faculty-name">Dr. Ali Hagverdiyev</h1>
+          <p class="faculty-title">Lecturer, Department of Mathematics &bull; University of Miami</p>
+        </div>
+
+        <section class="publications-section">
+          <h2 class="section-heading">Publications</h2>
+          <ol class="pub-list">
+            <li class="pub-item">
+              <span class="pub-title">On blow-up phenomena for a two-component generalization of hyper-elastic rod equation</span>
+              <span class="pub-authors">E. Novruzov, A. Hagverdiyev, P. A. Gökgöz</span>
+              <span class="pub-journal"><em>Journal of Differential Equations</em>, 473, 114462 (2026)</span>
+            </li>
+
+            <li class="pub-item">
+              <span class="pub-title">Blow-up criterion for the modified compressible Navier–Stokes equations with density-dependent viscosity</span>
+              <span class="pub-authors">A. Hagverdiyev, E. Novruzov</span>
+              <span class="pub-journal"><em>Mathematical Methods in the Applied Sciences</em>, 47 (12) (2024)</span>
+            </li>
+
+            <li class="pub-item">
+              <span class="pub-title">Optimal control of coefficients in parabolic free boundary problems modeling laser ablation</span>
+              <span class="pub-authors">U. G. Abdulla, J. Goldfarb, A. Hagverdiyev</span>
+              <span class="pub-journal"><em>Journal of Computational and Applied Mathematics</em>, 372, 112736 (2020)</span>
+            </li>
+
+            <li class="pub-item">
+              <span class="pub-title">Gradient method in Hilbert–Besov spaces for the optimal control of parabolic free boundary problems</span>
+              <span class="pub-authors">U. G. Abdulla, V. Bukshtynov, A. Hagverdiyev</span>
+              <span class="pub-journal"><em>Journal of Computational and Applied Mathematics</em>, 346, 84–109 (2019)</span>
+            </li>
+
+            <li class="pub-item">
+              <span class="pub-title">On long-time dynamics of the solution of doubly nonlinear equation</span>
+              <span class="pub-authors">E. Novruzov, A. Hagverdiyev</span>
+              <span class="pub-journal"><em>Qualitative Theory of Dynamical Systems</em>, 15 (1), 127–155 (2016)</span>
+            </li>
+
+            <li class="pub-item">
+              <span class="pub-title">On the behavior of the solution of the dissipative Camassa–Holm equation with the arbitrary dispersion coefficient</span>
+              <span class="pub-authors">E. Novruzov, A. Hagverdiyev</span>
+              <span class="pub-journal"><em>Journal of Differential Equations</em>, 257 (12), 4525–4541 (2014)</span>
+            </li>
+          </ol>
+        </section>
+      </main>
+
+      <!-- Right Column Image -->
+      <aside class="profile-column">
+        <img src="mmm.jpg" alt="Dr. Ali Hagverdiyev">
+      </aside>
+
+    </div>
+
+    <!-- Clean Institutional Footer -->
+    <footer class="site-footer">
+      &copy; Dr. Ali Hagverdiyev &bull; Department of Mathematics, University of Miami
+    </footer>
+  </div>
+
+</body>
 </html>
