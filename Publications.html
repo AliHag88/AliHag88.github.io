@@ -38,7 +38,7 @@
 
     /* Main Centered Container */
     .page-wrapper {
-      max-width: 1150px;
+      max-width: 1050px;
       margin: 30px auto;
       background-color: var(--bg-card);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -48,18 +48,18 @@
       border-top: 4px solid var(--accent-color);
     }
 
-    /* Three-Column Faculty Layout */
+    /* Two-Column Faculty Layout */
     .content-grid {
       display: flex;
       flex-direction: row;
       align-items: flex-start;
       padding: 40px;
-      gap: 40px;
+      gap: 45px;
     }
 
     /* Left Sidebar Navigation */
     .sidebar {
-      width: 220px;
+      width: 240px;
       flex-shrink: 0;
       border-right: 1px solid var(--border-light);
       padding-right: 25px;
@@ -95,7 +95,7 @@
       color: #ffffff;
     }
 
-    /* Center Main Content Area */
+    /* Right Main Content Area */
     .main-content {
       flex: 1;
     }
@@ -169,22 +169,6 @@
       color: var(--primary-color);
     }
 
-    /* Right Profile Photo Column */
-    .profile-column {
-      width: 250px;
-      flex-shrink: 0;
-    }
-
-    .profile-column img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 6px;
-      border: 1px solid var(--border-light);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-      object-fit: cover;
-    }
-
     /* Footer */
     .site-footer {
       text-align: center;
@@ -196,17 +180,6 @@
     }
 
     /* Mobile & Tablet Responsiveness */
-    @media screen and (max-width: 900px) {
-      .content-grid {
-        flex-wrap: wrap;
-      }
-
-      .profile-column {
-        width: 100%;
-        max-width: 300px;
-      }
-    }
-
     @media screen and (max-width: 768px) {
       .page-wrapper {
         margin: 0;
@@ -260,7 +233,7 @@
         </ul>
       </nav>
 
-      <!-- Center Main Publications Section -->
+      <!-- Main Publications Section -->
       <main class="main-content">
         <div class="faculty-header">
           <h1 class="faculty-name">Dr. Ali Hagverdiyev</h1>
@@ -308,11 +281,6 @@
           </ol>
         </section>
       </main>
-
-      <!-- Right Column Image -->
-      <aside class="profile-column">
-        <img src="mmm.jpg" alt="Dr. Ali Hagverdiyev">
-      </aside>
 
     </div>
 
