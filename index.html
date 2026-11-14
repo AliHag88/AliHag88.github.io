@@ -1,132 +1,249 @@
+html
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ali Hagverdiyev</title>
-<style>
-table, th, td {
-    border: 1px solid black;
-    padding: 5px;
-}
-table {
-    border-spacing: 15px;
-}
-</style>
-
-
-</head>
-
-<style>
-body {
-    font-family: "Lato", sans-serif;
-}
-
-.sidenav {
-    width: 230px;
-    position: fixed;
-    z-index: 1;
-    top: 290px;
-    left: 10px;
-    background: white;
-    overflow-x: hidden;
-    padding: 8px 0;
-}
-
-.sidenav a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #2196F3;
-    display: block;
-}
-
-.sidenav a:hover {
-    color: #064579;
-}
-
-.main {
-    margin-left: 440px; /* Same width as the sidebar + left position in px */
-    font-size: 17px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-}
-</style>
-
-
-<body bgcolor="white">
-
-
-
-
-
-<img src="mmm1.gif" width="900" height="300" alt="..." title="..."
-style="display:block;margin-left:auto; margin-right:auto;" />
-
-
-<!--    THIS PART IS COMMENTED
-
-<table style="width:100%" bgcolor="D8F2EF">
-  <tr>
-    <td> <a href="Teaching.html"> Teaching </a> </td>
-    <td> <a href="CV.pdf"> CV </a> </td> 
-    <td> AMS Chapter </td>
-  </tr>
-  <tr>
-    <td> Office Hours</td>
-    <td>Publications</td>
-    <td> Conferences </td>
-  </tr>
-</table>     -->
-
-
-<h1 style="text-align:center; color:gray;" > <i> Ali Hagverdiyev </i> </h1>
-<h1 style="text-align:center; color:green;" > <i> Bio </i> </h1>
-
-<div class="sidenav">
-<ul>
-<br></br>
-<li> <a href="OfficeHours.html">Office Hours</a> </li>  
-<br></br>
-<li> <a href="Publications.html">Publications</a> </li>
-<br></br>
-<li> <a href="Conferences.html">Conferences</a> </li>
-<br></br>
-<li> <a href="Teaching.html">Teaching</a> </li>
-<br></br>
-<li> <a href="AMSChapter.html">AMS Chapter</a> </li>
-<br></br>
-<li> <a href="CV.pdf">CV</a> </li>
-</ul> 
-</div>
-
-
-
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Ali Hagverdiyev | Department of Mathematics</title>
   
- 
+  <!-- Google Fonts for a scholarly pairing: Merriweather (Serif) + Inter (Sans-Serif) -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
- <div class="main">
-<p> Dr. Hagverdiyev earned his Bachelor’s degree in Applied Mathematics from Baku State University in Azerbaijan, 
-where his high entrance exam score earned him both a tuition waiver and a stipend. After receiving a competitive scholarship through the Azerbaijani Ministry of 
-Education's Study Abroad Program, he continued his education at the University of Nottingham, earning a Master’s degree in Pure Mathematics. He later went on to 
-earn both a Master’s degree and a PhD in Applied Mathematics from the Florida Institute of Technology.
-In addition to his academic achievements, Dr. Hagverdiyev brings extensive teaching experience to his role. While completing his studies, he served as a teaching 
-assistant at Texas A&M University and the Florida Institute of Technology, worked as a part-time lecturer at Keiser University, and tutored online for Holyoke 
-Community College. Following his PhD, he joined Springdale Preparatory School as a full-time teacher, where he also earned his International Baccalaureate (IB) Category 1 certification in Mathematics: Applications and Interpretation. Since 2011, Dr. Hagverdiyev has served as a full-time lecturer at the University of Miami. 
-</p> 
-</div>
+  <style>
+    :root {
+      /* University of Miami inspired refined palette */
+      --primary-color: #005030;      /* Deep Institutional Green */
+      --accent-color: #f47321;       /* Subtle Academic Orange Accent */
+      --text-main: #222222;          /* High-contrast charcoal for readability */
+      --text-muted: #555555;         /* Secondary metadata text */
+      --bg-page: #f8f9fa;            /* Light off-white page background */
+      --bg-card: #ffffff;            /* Crisp white content area */
+      --border-light: #e2e8f0;       /* Subtle structural dividers */
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.7;
+      font-size: 16px;
+    }
 
+    /* Main Centered Container */
+    .page-wrapper {
+      max-width: 1050px;
+      margin: 30px auto;
+      background-color: var(--bg-card);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+    }
 
+    /* Top Banner */
+    .header-banner {
+      width: 100%;
+      max-height: 280px;
+      overflow: hidden;
+      background-color: var(--primary-color);
+      border-bottom: 4px solid var(--accent-color);
+    }
+
+    .header-banner img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Two-Column Faculty Layout */
+    .content-grid {
+      display: flex;
+      flex-direction: row;
+      padding: 40px;
+      gap: 45px;
+    }
+
+    /* Left Sidebar Navigation */
+    .sidebar {
+      width: 240px;
+      flex-shrink: 0;
+      border-right: 1px solid var(--border-light);
+      padding-right: 25px;
+    }
+
+    .nav-list {
+      list-style: none;
+    }
+
+    .nav-list li {
+      margin-bottom: 8px;
+    }
+
+    .nav-list a {
+      display: block;
+      padding: 10px 14px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 500;
+      font-size: 15px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-list a:hover {
+      background-color: #f0f4f2;
+      color: var(--primary-color);
+      padding-left: 18px;
+    }
+
+    .nav-list a.active {
+      background-color: var(--primary-color);
+      color: #ffffff;
+    }
+
+    /* Right Main Content Area */
+    .main-content {
+      flex: 1;
+    }
+
+    .faculty-header {
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .faculty-name {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+    }
+
+    .faculty-title {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .section-heading {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 20px;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .bio-text p {
+      margin-bottom: 18px;
+      color: #333333;
+      text-align: left;
+    }
+
+    /* Footer */
+    .site-footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      background-color: #f8f9fa;
+      border-top: 1px solid var(--border-light);
+    }
+
+    /* Mobile & Tablet Responsiveness */
+    @media screen and (max-width: 768px) {
+      .page-wrapper {
+        margin: 0;
+        border-radius: 0;
+        border: none;
+      }
+
+      .content-grid {
+        flex-direction: column;
+        padding: 25px;
+        gap: 25px;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+        padding-right: 0;
+        padding-bottom: 15px;
+      }
+
+      .nav-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .nav-list li {
+        margin-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper">
+    <!-- Top Banner Image -->
+    <header class="header-banner">
+      <img src="mmm1.gif" alt="Department of Mathematics Banner">
+    </header>
+
+    <!-- Main Layout -->
+    <div class="content-grid">
+      
+      <!-- Sidebar Navigation -->
+      <nav class="sidebar" aria-label="Faculty Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="active">Bio</a></li>
+          <li><a href="OfficeHours.html">Office Hours</a></li>
+          <li><a href="Publications.html">Publications</a></li>
+          <li><a href="Conferences.html">Conferences</a></li>
+          <li><a href="Teaching.html">Teaching</a></li>
+          <li><a href="AMSChapter.html">AMS Chapter</a></li>
+          <li><a href="CV.pdf" target="_blank">CV</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main Biography Section -->
+      <main class="main-content">
+        <div class="faculty-header">
+          <h1 class="faculty-name">Dr. Ali Hagverdiyev</h1>
+          <p class="faculty-title">Lecturer, Department of Mathematics &bull; University of Miami</p>
+        </div>
+
+        <section class="bio-text">
+          <h2 class="section-heading">Bio</h2>
+          <p>
+            Dr. Hagverdiyev earned his Bachelor’s degree in Applied Mathematics from Baku State University in Azerbaijan, where his high entrance exam score earned him both a tuition waiver and a stipend. After receiving a competitive scholarship through the Azerbaijani Ministry of Education's Study Abroad Program, he continued his education at the University of Nottingham, earning a Master’s degree in Pure Mathematics. He later went on to earn both a Master’s degree and a PhD in Applied Mathematics from the Florida Institute of Technology.
+          </p>
+          <p>
+            In addition to his academic achievements, Dr. Hagverdiyev brings extensive teaching experience to his role. While completing his studies, he served as a teaching assistant at Texas A&amp;M University and the Florida Institute of Technology, worked as a part-time lecturer at Keiser University, and tutored online for Holyoke Community College. Following his PhD, he joined Springdale Preparatory School as a full-time teacher, where he also earned his International Baccalaureate (IB) Category 1 certification in Mathematics: Applications and Interpretation. Since 2011, Dr. Hagverdiyev has served as a full-time lecturer at the University of Miami.
+          </p>
+        </section>
+      </main>
+
+    </div>
+
+    <!-- Clean Institutional Footer -->
+    <footer class="site-footer">
+      &copy; Dr. Ali Hagverdiyev &bull; Department of Mathematics, University of Miami
+    </footer>
+  </div>
 
 </body>
+</html>
 
 
 </html>
