@@ -1,23 +1,317 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conferences &amp; Talks | Dr. Ali Hagverdiyev</title>
+  
+  <!-- Google Fonts for a scholarly pairing: Merriweather (Serif) + Inter (Sans-Serif) -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com" rel="stylesheet">
 
-<html>
+  <style>
+    :root {
+      /* University of Miami inspired refined palette */
+      --primary-color: #005030;      /* Deep Institutional Green */
+      --accent-color: #f47321;       /* Subtle Academic Orange Accent */
+      --text-main: #222222;          /* High-contrast charcoal for readability */
+      --text-muted: #555555;         /* Secondary metadata text */
+      --bg-page: #f8f9fa;            /* Light off-white page background */
+      --bg-card: #ffffff;            /* Crisp white content area */
+      --border-light: #e2e8f0;       /* Subtle structural dividers */
+    }
 
-<h1 style="color:blue"; align="center"> Conferences </h1> 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.7;
+      font-size: 16px;
+    }
 
-<p style="font-size:160%"> 1. AMS Sectional Meeting: Fall Eastern Sectional Meeting, <i> University of Delaware, Newark, DE, September 29-30, 2018 </i> <b>(speaker)</b> </p>
+    /* Main Centered Container */
+    .page-wrapper {
+      max-width: 1050px;
+      margin: 30px auto;
+      background-color: var(--bg-card);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      border-top: 4px solid var(--accent-color);
+    }
 
-<p style="font-size:160%"> 2. JMM Joint Mathematics Meetings, <i> San Diego Convention Center, San Diego, CA, January 2018 </i> <b> (speaker) </b> </p>
+    /* Two-Column Faculty Layout */
+    .content-grid {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 40px;
+      gap: 45px;
+    }
 
-<p style="font-size:160%"> 3. AMS Sectional Meeting: <i> Fall Southeastern Sectional Meeting, </i> </p>
+    /* Left Sidebar Navigation */
+    .sidebar {
+      width: 240px;
+      flex-shrink: 0;
+      border-right: 1px solid var(--border-light);
+      padding-right: 25px;
+    }
 
-<p style="font-size:160%"> <i> University of Central Florida, Orlando, FL, September 2017 </i> <b> (speaker) </b> </p>
+    .nav-list {
+      list-style: none;
+    }
 
-<p style="font-size:160%"> 4. SEARCDE, <i> Florida Gulf Coast University 2016 </i> </p> 
+    .nav-list li {
+      margin-bottom: 8px;
+    }
 
-<p style="font-size:160%"> 5. Finite Element Rodeo Conference 2012, <i> Louisiana State University </i> </p>                                              
+    .nav-list a {
+      display: block;
+      padding: 10px 14px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 500;
+      font-size: 15px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
 
+    .nav-list a:hover {
+      background-color: #f0f4f2;
+      color: var(--primary-color);
+      padding-left: 18px;
+    }
 
+    .nav-list a.active {
+      background-color: var(--primary-color);
+      color: #ffffff;
+    }
 
+    /* Right Main Content Area */
+    .main-content {
+      flex: 1;
+    }
 
-</html>
+    .faculty-header {
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .faculty-name {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+    }
+
+    .faculty-title {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .section-heading {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 20px;
+      color: var(--text-main);
+      margin-bottom: 20px;
+    }
+
+    /* Conferences List Styling */
+    .conf-list {
+      list-style: none;
+    }
+
+    .conf-item {
+      margin-bottom: 20px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border-light);
+      color: #333333;
+    }
+
+    .conf-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .conf-role {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: var(--primary-color);
+      background-color: #f0f4f2;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-bottom: 6px;
+    }
+
+    .conf-title {
+      font-weight: 600;
+      color: var(--text-main);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .conf-meta {
+      font-size: 15px;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    /* Footer */
+    .site-footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      background-color: #f8f9fa;
+      border-top: 1px solid var(--border-light);
+    }
+
+    /* Mobile & Tablet Responsiveness */
+    @media screen and (max-width: 768px) {
+      .page-wrapper {
+        margin: 0;
+        border-radius: 0;
+        border: none;
+        border-top: 4px solid var(--accent-color);
+      }
+
+      .content-grid {
+        flex-direction: column;
+        padding: 25px;
+        gap: 25px;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+        padding-right: 0;
+        padding-bottom: 15px;
+      }
+
+      .nav-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .nav-list li {
+        margin-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper">
+    <!-- Main Layout -->
+    <div class="content-grid">
+      
+      <!-- Left Sidebar Navigation -->
+      <nav class="sidebar" aria-label="Faculty Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Bio</a></li>
+          <li><a href="OfficeHours.html">Office Hours</a></li>
+          <li><a href="Publications.html">Publications</a></li>
+          <li><a href="Conferences.html" class="active">Conferences</a></li>
+          <li><a href="Teaching.html">Teaching</a></li>
+          <li><a href="AMSChapter.html">AMS Chapter</a></li>
+          <li><a href="CV.pdf" target="_blank">CV</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main Conferences Section -->
+      <main class="main-content">
+        <div class="faculty-header">
+          <h1 class="faculty-name">Dr. Ali Hagverdiyev</h1>
+          <p class="faculty-title">Lecturer, Department of Mathematics &bull; University of Miami</p>
+        </div>
+
+        <section class="conferences-section">
+          <h2 class="section-heading">Conferences &amp; Invited Talks</h2>
+          <ul class="conf-list">
+            <li class="conf-item">
+              <span class="conf-role">Invited Speaker</span>
+              <span class="conf-title">Mathematics Colloquium Series</span>
+              <span class="conf-meta">Nova Southeastern University &bull; April 11, 2024</span>
+            </li>
+
+            <li class="conf-item">
+              <span class="conf-role">Speaker</span>
+              <span class="conf-title">Applied Mathematics Seminar</span>
+              <span class="conf-meta">University of Miami &bull; March 28, 2023</span>
+            </li>
+
+            <li class="conf-item">
+              <span class="conf-role">Speaker</span>
+              <span class="conf-title">Joint Mathematics Meetings (JMM)</span>
+              <span class="conf-meta">Denver, CO &bull; January 15–18, 2020</span>
+            </li>
+
+            <li class="conf-item">
+              <span class="conf-role">Speaker</span>
+              <span class="conf-title">Fall Southeastern AMS Sectional Meeting</span>
+              <span class="conf-meta">University of Florida, Gainesville, FL &bull; November 2–3, 2019</span>
+            </li>
+
+            <li class="conf-item">
+              <span class="conf-role">Speaker</span>
+              <span class="conf-title">39th Southeastern-Atlantic Regional Conference on Differential Equations (SEARCDE)</span>
+              <span class="conf-meta">October 26–27, 2019</span>
+            </li>
+
+            <li class="conf-item">
+              <span class="conf-role">Speaker</span>
+              <span class="conf-title">Joint Mathematics Meetings (JMM)</span>
+              <span class="conf-meta">Baltimore Convention Center, Hilton Baltimore, and Baltimore Marriott Inner Harbor Hotel, Baltimore, MD &bull; January 16–19, 2019</span>
+            </li>
+
+            <li class="conf-item">
+              <span class="conf-role">Poster Presentation</span>
+              <span class="conf-title">Second International Conference on Mathematics of Data Science (ICMDS 2018)</span>
+              <span class="conf-meta">Old Dominion University, Norfolk, VA &bull; November 2–4, 2018</span>
+            </li>
+
+            <li class="conf-item">
+              <span class="conf-role">Speaker</span>
+              <span class="conf-title">38th Southeastern-Atlantic Regional Conference on Differential Equations (SEARCDE)</span>
+              <span class="conf-meta">University of North Georgia, GA &bull; October 6–7, 2018</span>
+            </li>
+
+            <li class="conf-item">
+              <span class="conf-role">Speaker</span>
+              <span class="conf-title">AMS Fall Eastern Sectional Meeting</span>
+              <span class="conf-meta">University of Delaware, Newark, DE &bull; September 29–30, 2018</span>
+            </li>
+
+            <li class="conf-item">
+              <span class="conf-role">Speaker</span>
+              <span class="conf-title">Joint Mathematics Meetings (JMM)</span>
+              <span class="conf-meta">San Diego Convention Center, San Diego, CA &bull; January 2018</span>
+            </li>
+
+            <li class="conf-item">
+              <span class="conf-role">Speaker</span>
+              <span class="conf-title">AMS Fall Southeastern Sectional Meeting</span>
+              <span class="conf-meta">University of Central Florida, Orlando, FL &bull; September 2017</span>
+            </li>
+
+            <li class="conf-item">
+              <span class="conf-role">Speaker</span>
+              <span class="conf-title">Southeastern-Atlantic Regional Conference on Differential Equations (SEARCDE)</span>
+              <span class="conf-meta">Florida Gulf Coast University &bull; 2016</span>
