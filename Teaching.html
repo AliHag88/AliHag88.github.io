@@ -1,11 +1,275 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teaching | Dr. Ali Hagverdiyev</title>
+  
+  <!-- Google Fonts for a scholarly pairing: Merriweather (Serif) + Inter (Sans-Serif) -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com" rel="stylesheet">
 
-<html>
+  <style>
+    :root {
+      /* University of Miami inspired refined palette */
+      --primary-color: #005030;      /* Deep Institutional Green */
+      --accent-color: #f47321;       /* Subtle Academic Orange Accent */
+      --text-main: #222222;          /* High-contrast charcoal for readability */
+      --text-muted: #555555;         /* Secondary metadata text */
+      --bg-page: #f8f9fa;            /* Light off-white page background */
+      --bg-card: #ffffff;            /* Crisp white content area */
+      --border-light: #e2e8f0;       /* Subtle structural dividers */
+    }
 
-<h1 style="color:blue"; "font-size:160%"; align= "center";  > Teaching </h1> 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<p style="font-size:160%"> Intro To PDE: Professor Dr. Tariel Kiguradze </p>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.7;
+      font-size: 16px;
+    }
 
-<p style="font-size:160%"> DiffEq: Professor Vladislav Bukshtynov (CRF 230) and Professor Dr. Jay Kovats (CRF 404) </p>
+    /* Main Centered Container */
+    .page-wrapper {
+      max-width: 1050px;
+      margin: 30px auto;
+      background-color: var(--bg-card);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      border-top: 4px solid var(--accent-color);
+    }
 
+    /* Two-Column Faculty Layout */
+    .content-grid {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 40px;
+      gap: 45px;
+    }
+
+    /* Left Sidebar Navigation */
+    .sidebar {
+      width: 240px;
+      flex-shrink: 0;
+      border-right: 1px solid var(--border-light);
+      padding-right: 25px;
+    }
+
+    .nav-list {
+      list-style: none;
+    }
+
+    .nav-list li {
+      margin-bottom: 8px;
+    }
+
+    .nav-list a {
+      display: block;
+      padding: 10px 14px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 500;
+      font-size: 15px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-list a:hover {
+      background-color: #f0f4f2;
+      color: var(--primary-color);
+      padding-left: 18px;
+    }
+
+    .nav-list a.active {
+      background-color: var(--primary-color);
+      color: #ffffff;
+    }
+
+    /* Right Main Content Area */
+    .main-content {
+      flex: 1;
+    }
+
+    .faculty-header {
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .faculty-name {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+    }
+
+    .faculty-title {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .section-heading {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 20px;
+      color: var(--text-main);
+      margin-bottom: 20px;
+    }
+
+    /* Course List Styling */
+    .course-list {
+      list-style: none;
+    }
+
+    .course-item {
+      margin-bottom: 16px;
+      padding: 18px 20px;
+      background-color: #f8faf9;
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--primary-color);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .course-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .course-code {
+      font-size: 14px;
+      font-weight: 600;
+      color: #ffffff;
+      background-color: var(--primary-color);
+      padding: 4px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.4px;
+      flex-shrink: 0;
+    }
+
+    .course-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    /* Footer */
+    .site-footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      background-color: #f8f9fa;
+      border-top: 1px solid var(--border-light);
+    }
+
+    /* Mobile & Tablet Responsiveness */
+    @media screen and (max-width: 768px) {
+      .page-wrapper {
+        margin: 0;
+        border-radius: 0;
+        border: none;
+        border-top: 4px solid var(--accent-color);
+      }
+
+      .content-grid {
+        flex-direction: column;
+        padding: 25px;
+        gap: 25px;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+        padding-right: 0;
+        padding-bottom: 15px;
+      }
+
+      .nav-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .nav-list li {
+        margin-bottom: 0;
+      }
+
+      .course-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper">
+    <!-- Main Layout -->
+    <div class="content-grid">
+      
+      <!-- Left Sidebar Navigation -->
+      <nav class="sidebar" aria-label="Faculty Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Bio</a></li>
+          <li><a href="OfficeHours.html">Office Hours</a></li>
+          <li><a href="Publications.html">Publications</a></li>
+          <li><a href="Conferences.html">Conferences</a></li>
+          <li><a href="Teaching.html" class="active">Teaching</a></li>
+          <li><a href="AMSChapter.html">AMS Chapter</a></li>
+          <li><a href="CV.pdf" target="_blank">CV</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main Teaching Section -->
+      <main class="main-content">
+        <div class="faculty-header">
+          <h1 class="faculty-name">Dr. Ali Hagverdiyev</h1>
+          <p class="faculty-title">Lecturer, Department of Mathematics &bull; University of Miami</p>
+        </div>
+
+        <section class="teaching-section">
+          <h2 class="section-heading">Teaching &mdash; Fall 2026</h2>
+          <ul class="course-list">
+            <li class="course-item">
+              <span class="course-code">MTH 151</span>
+              <span class="course-name">Calculus I for Engineering</span>
+            </li>
+
+            <li class="course-item">
+              <span class="course-code">MTH 161</span>
+              <span class="course-name">Calculus I</span>
+            </li>
+
+            <li class="course-item">
+              <span class="course-code">MTH 162</span>
+              <span class="course-name">Calculus II</span>
+            </li>
+          </ul>
+        </section>
+      </main>
+
+    </div>
+
+    <!-- Clean Institutional Footer -->
+    <footer class="site-footer">
+      &copy; Dr. Ali Hagverdiyev &bull; Department of Mathematics, University of Miami
+    </footer>
+  </div>
+
+</body>
 </html>
