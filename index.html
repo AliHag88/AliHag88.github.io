@@ -38,42 +38,28 @@
 
     /* Main Centered Container */
     .page-wrapper {
-      max-width: 1050px;
+      max-width: 1150px;
       margin: 30px auto;
       background-color: var(--bg-card);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       border-radius: 6px;
       overflow: hidden;
       border: 1px solid var(--border-light);
+      border-top: 4px solid var(--accent-color);
     }
 
-    /* Top Banner */
-    .header-banner {
-      width: 100%;
-      max-height: 280px;
-      overflow: hidden;
-      background-color: var(--primary-color);
-      border-bottom: 4px solid var(--accent-color);
-    }
-
-    .header-banner img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* Two-Column Faculty Layout */
+    /* Three-Column Faculty Layout */
     .content-grid {
       display: flex;
       flex-direction: row;
+      align-items: flex-start;
       padding: 40px;
-      gap: 45px;
+      gap: 40px;
     }
 
     /* Left Sidebar Navigation */
     .sidebar {
-      width: 240px;
+      width: 220px;
       flex-shrink: 0;
       border-right: 1px solid var(--border-light);
       padding-right: 25px;
@@ -109,7 +95,7 @@
       color: #ffffff;
     }
 
-    /* Right Main Content Area */
+    /* Center Main Content Area */
     .main-content {
       flex: 1;
     }
@@ -147,6 +133,22 @@
       text-align: left;
     }
 
+    /* Right Profile Photo Column */
+    .profile-column {
+      width: 250px;
+      flex-shrink: 0;
+    }
+
+    .profile-column img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      border: 1px solid var(--border-light);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      object-fit: cover;
+    }
+
     /* Footer */
     .site-footer {
       text-align: center;
@@ -158,11 +160,23 @@
     }
 
     /* Mobile & Tablet Responsiveness */
+    @media screen and (max-width: 900px) {
+      .content-grid {
+        flex-wrap: wrap;
+      }
+
+      .profile-column {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
     @media screen and (max-width: 768px) {
       .page-wrapper {
         margin: 0;
         border-radius: 0;
         border: none;
+        border-top: 4px solid var(--accent-color);
       }
 
       .content-grid {
@@ -193,21 +207,11 @@
 </head>
 <body>
 
-<div class="page-wrapper">
-  <!-- Top Full-Width Image -->
-  <header class="header-banner" style="background-color: #ffffff; width: 100%; overflow: hidden;">
-    <img 
-      src="mmm.jpg" 
-      alt="Department of Mathematics Banner" 
-      style="width: 100%; height: 100%; object-fit: cover; display: block; background-color: #ffffff;"
-    >
-  </header>
-</div>
-
+  <div class="page-wrapper">
     <!-- Main Layout -->
     <div class="content-grid">
       
-      <!-- Sidebar Navigation -->
+      <!-- Left Sidebar Navigation -->
       <nav class="sidebar" aria-label="Faculty Navigation">
         <ul class="nav-list">
           <li><a href="index.html" class="active">Bio</a></li>
@@ -220,7 +224,7 @@
         </ul>
       </nav>
 
-      <!-- Main Biography Section -->
+      <!-- Center Main Biography Section -->
       <main class="main-content">
         <div class="faculty-header">
           <h1 class="faculty-name">Dr. Ali Hagverdiyev</h1>
@@ -237,6 +241,11 @@
           </p>
         </section>
       </main>
+
+      <!-- Right Column Image -->
+      <aside class="profile-column">
+        <img src="pic_link.jpg" alt="Dr. Ali Hagverdiyev">
+      </aside>
 
     </div>
 
