@@ -301,9 +301,9 @@
       <!-- PDF Split-Screen View -->
       <div class="pdf-view" id="pdfView">
         <div class="pdf-toolbar">
-          <span id="pdfTitle">Ali_Hagverdiyev_CV.pdf</span>
+          <span id="pdfTitle">CV_Git.pdf</span>
           <div class="toolbar-actions">
-            <a id="downloadLink" href="Ali_Hagverdiyev_CV.pdf" download class="btn-small">Download PDF</a>
+            <a id="downloadLink" href="CV_Git.pdf" download class="btn-small">Download PDF</a>
             <button type="button" class="btn-small" id="closePdfBtn">Close</button>
           </div>
         </div>
@@ -314,7 +314,7 @@
 
   <script>
     // Set the filename of your compiled CV PDF located in the same folder as this HTML file
-    const DEFAULT_CV_PATH = "Ali_Hagverdiyev_CV.pdf";
+    const DEFAULT_CV_PATH = "CV_Git.pdf";
 
     const welcomeView = document.getElementById("welcomeView");
     const pdfView = document.getElementById("pdfView");
