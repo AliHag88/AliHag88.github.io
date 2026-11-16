@@ -46,18 +46,23 @@
       display: none;
     }
 
-    /* Show active language blocks based on checked radio button */
-    #radio-en:checked ~ .page-wrapper .lang-en { display: inline; }
-    #radio-az:checked ~ .page-wrapper .lang-az { display: inline; }
-    #radio-tr:checked ~ .page-wrapper .lang-tr { display: inline; }
-    #radio-ru:checked ~ .page-wrapper .lang-ru { display: inline; }
-    #radio-es:checked ~ .page-wrapper .lang-es { display: inline; }
+    /* Show inline language spans based on checked radio button */
+    #radio-en:checked ~ .page-wrapper span.lang-en,
+    #radio-az:checked ~ .page-wrapper span.lang-az,
+    #radio-tr:checked ~ .page-wrapper span.lang-tr,
+    #radio-ru:checked ~ .page-wrapper span.lang-ru,
+    #radio-es:checked ~ .page-wrapper span.lang-es {
+      display: inline;
+    }
 
-    #radio-en:checked ~ .page-wrapper p.lang-en { display: block; }
-    #radio-az:checked ~ .page-wrapper p.lang-az { display: block; }
-    #radio-tr:checked ~ .page-wrapper p.lang-tr { display: block; }
-    #radio-ru:checked ~ .page-wrapper p.lang-ru { display: block; }
-    #radio-es:checked ~ .page-wrapper p.lang-es { display: block; }
+    /* Show block language paragraphs based on checked radio button */
+    #radio-en:checked ~ .page-wrapper p.lang-en,
+    #radio-az:checked ~ .page-wrapper p.lang-az,
+    #radio-tr:checked ~ .page-wrapper p.lang-tr,
+    #radio-ru:checked ~ .page-wrapper p.lang-ru,
+    #radio-es:checked ~ .page-wrapper p.lang-es {
+      display: block;
+    }
 
     /* Highlight active language label */
     #radio-en:checked ~ .page-wrapper label[for="radio-en"],
@@ -290,6 +295,7 @@
   <input type="radio" name="language" id="radio-es" class="lang-radio">
 
   <div class="page-wrapper">
+    
     <!-- Top Right Language Bar -->
     <div class="language-bar" role="region" aria-label="Language Selector">
       <label for="radio-en" class="lang-label">English</label>
@@ -343,4 +349,5 @@
           </li>
           <li>
             <a href="Teaching.html">
-
+              <span class="lang-en">Teaching</span>
+              <span class="lang-az">Tədris</span>
