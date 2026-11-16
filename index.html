@@ -1,31 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Ali Hagverdiyev | Department of Mathematics</title>
-  
-  <!-- Google Fonts for a scholarly pairing: Merriweather (Serif) + Inter (Sans-Serif) -->
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      /* University of Miami inspired refined palette */
-      --primary-color: #005030;      /* Deep Institutional Green */
-      --accent-color: #f47321;       /* Subtle Academic Orange Accent */
-      --text-main: #222222;          /* High-contrast charcoal for readability */
-      --text-muted: #555555;         /* Secondary metadata text */
-      --bg-page: #f8f9fa;            /* Light off-white page background */
-      --bg-card: #ffffff;            /* Crisp white content area */
-      --border-light: #e2e8f0;       /* Subtle structural dividers */
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
@@ -34,45 +6,6 @@
       color: var(--text-main);
       line-height: 1.7;
       font-size: 16px;
-    }
-
-    /* Hide Radio Inputs for Pure-CSS Language Switching */
-    .lang-radio {
-      display: none;
-    }
-
-    /* Hide all language spans/blocks by default */
-    .lang-en, .lang-az, .lang-tr, .lang-ru, .lang-es {
-      display: none;
-    }
-
-    /* Show inline language spans based on checked radio button */
-    #radio-en:checked ~ .page-wrapper span.lang-en,
-    #radio-az:checked ~ .page-wrapper span.lang-az,
-    #radio-tr:checked ~ .page-wrapper span.lang-tr,
-    #radio-ru:checked ~ .page-wrapper span.lang-ru,
-    #radio-es:checked ~ .page-wrapper span.lang-es {
-      display: inline;
-    }
-
-    /* Show block language paragraphs based on checked radio button */
-    #radio-en:checked ~ .page-wrapper p.lang-en,
-    #radio-az:checked ~ .page-wrapper p.lang-az,
-    #radio-tr:checked ~ .page-wrapper p.lang-tr,
-    #radio-ru:checked ~ .page-wrapper p.lang-ru,
-    #radio-es:checked ~ .page-wrapper p.lang-es {
-      display: block;
-    }
-
-    /* Highlight active language label */
-    #radio-en:checked ~ .page-wrapper label[for="radio-en"],
-    #radio-az:checked ~ .page-wrapper label[for="radio-az"],
-    #radio-tr:checked ~ .page-wrapper label[for="radio-tr"],
-    #radio-ru:checked ~ .page-wrapper label[for="radio-ru"],
-    #radio-es:checked ~ .page-wrapper label[for="radio-es"] {
-      background-color: var(--primary-color);
-      color: #ffffff;
-      font-weight: 600;
     }
 
     /* Main Centered Container */
@@ -85,34 +18,6 @@
       overflow: hidden;
       border: 1px solid var(--border-light);
       border-top: 4px solid var(--accent-color);
-    }
-
-    /* Top Right Language Bar */
-    .language-bar {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 6px;
-      padding: 12px 40px;
-      background-color: #f8f9fa;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .lang-label {
-      color: var(--text-muted);
-      font-size: 13px;
-      font-weight: 500;
-      padding: 5px 12px;
-      border-radius: 4px;
-      cursor: pointer;
-      user-select: none;
-      transition: all 0.2s ease;
-    }
-
-    .lang-label:hover {
-      background-color: #e9efec;
-      color: var(--primary-color);
     }
 
     /* Three-Column Faculty Layout */
@@ -216,14 +121,6 @@
       object-fit: cover;
     }
 
-    .profile-column figcaption {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-top: 8px;
-      text-align: center;
-      font-style: italic;
-    }
-
     /* Footer */
     .site-footer {
       text-align: center;
@@ -254,11 +151,6 @@
         border-top: 4px solid var(--accent-color);
       }
 
-      .language-bar {
-        padding: 12px 25px;
-        justify-content: center;
-      }
-
       .content-grid {
         flex-direction: column;
         padding: 25px;
@@ -287,67 +179,59 @@
 </head>
 <body>
 
-  <!-- Language State Radios (English selected by default) -->
-  <input type="radio" name="language" id="radio-en" class="lang-radio" checked>
-  <input type="radio" name="language" id="radio-az" class="lang-radio">
-  <input type="radio" name="language" id="radio-tr" class="lang-radio">
-  <input type="radio" name="language" id="radio-ru" class="lang-radio">
-  <input type="radio" name="language" id="radio-es" class="lang-radio">
-
   <div class="page-wrapper">
-    
-    <!-- Top Right Language Bar -->
-    <div class="language-bar" role="region" aria-label="Language Selector">
-      <label for="radio-en" class="lang-label">English</label>
-      <label for="radio-az" class="lang-label">Azərbaycan</label>
-      <label for="radio-tr" class="lang-label">Türkçe</label>
-      <label for="radio-ru" class="lang-label">Русский</label>
-      <label for="radio-es" class="lang-label">Español</label>
-    </div>
-
     <!-- Main Layout -->
     <div class="content-grid">
       
       <!-- Left Sidebar Navigation -->
       <nav class="sidebar" aria-label="Faculty Navigation">
         <ul class="nav-list">
-          <li>
-            <a href="index.html" class="active">
-              <span class="lang-en">Bio</span>
-              <span class="lang-az">Bioqrafiya</span>
-              <span class="lang-tr">Biyografi</span>
-              <span class="lang-ru">Биография</span>
-              <span class="lang-es">Biografía</span>
-            </a>
-          </li>
-          <li>
-            <a href="OfficeHours.html">
-              <span class="lang-en">Office Hours</span>
-              <span class="lang-az">Ofis Saatları</span>
-              <span class="lang-tr">Ofis Saatleri</span>
-              <span class="lang-ru">Часы приёма</span>
-              <span class="lang-es">Horas de Oficina</span>
-            </a>
-          </li>
-          <li>
-            <a href="Publications.html">
-              <span class="lang-en">Publications</span>
-              <span class="lang-az">Nəşrlər</span>
-              <span class="lang-tr">Yayınlar</span>
-              <span class="lang-ru">Публикации</span>
-              <span class="lang-es">Publicaciones</span>
-            </a>
-          </li>
-          <li>
-            <a href="Conferences.html">
-              <span class="lang-en">Conferences</span>
-              <span class="lang-az">Konfranslar</span>
-              <span class="lang-tr">Konferanslar</span>
-              <span class="lang-ru">Конференции</span>
-              <span class="lang-es">Conferencias</span>
-            </a>
-          </li>
-          <li>
-            <a href="Teaching.html">
-              <span class="lang-en">Teaching</span>
-              <span class="lang-az">Tədris</span>
+          <li><a href="index.html" class="active">Bio</a></li>
+          <li><a href="OfficeHours.html">Office Hours</a></li>
+          <li><a href="Publications.html">Publications</a></li>
+          <li><a href="Conferences.html">Conferences</a></li>
+          <li><a href="Teaching.html">Teaching</a></li>
+          <li><a href="AMSChapter.html">AMS Chapter</a></li>
+          <li><a href="CV.html" target="_blank">CV</a></li>
+        </ul>
+      </nav>
+
+      <!-- Center Main Biography Section -->
+      <main class="main-content">
+        <div class="faculty-header">
+          <h1 class="faculty-name">Dr. Ali Hagverdiyev</h1>
+          <p class="faculty-title">Lecturer, Department of Mathematics &bull; University of Miami</p>
+        </div>
+
+        <section class="bio-text">
+          <h2 class="section-heading">Bio</h2>
+          <p>
+            Dr. Hagverdiyev earned his Bachelor’s degree in Applied Mathematics from Baku State University in Azerbaijan, where his high entrance exam score earned him both a tuition waiver and a stipend. After receiving a competitive scholarship through the Azerbaijani Ministry of Education's Study Abroad Program, he continued his education at the University of Nottingham, earning a Master’s degree in Pure Mathematics. He later went on to earn both a Master’s degree and a PhD in Applied Mathematics from the Florida Institute of Technology.
+          </p>
+          <p>
+            In addition to his academic achievements, Dr. Hagverdiyev brings extensive teaching experience to his role. While completing his studies, he served as a teaching assistant at Texas A&amp;M University and the Florida Institute of Technology, worked as a part-time lecturer at Keiser University, and tutored online for Holyoke Community College. Following his PhD, he joined Springdale Preparatory School as a full-time teacher, where he also earned his International Baccalaureate (IB) Category 1 certification in Mathematics: Applications and Interpretation. Since 2011, Dr. Hagverdiyev has served as a full-time lecturer at the University of Miami.
+          </p>
+        </section>
+      </main>
+
+      <!-- Right Column Image -->
+ <aside class="profile-column">
+  <figure>
+    <img src="pic_link.jpg" alt="Dr. Ali Hagverdiyev">
+    <figcaption>The Roman Baths, Bath, UK</figcaption>
+  </figure>
+</aside>
+
+    </div>
+
+    <!-- Clean Institutional Footer -->
+    <footer class="site-footer">
+      &copy; Dr. Ali Hagverdiyev &bull; Department of Mathematics, University of Miami
+    </footer>
+  </div>
+
+</body>
+</html>
+
+
+</html>
