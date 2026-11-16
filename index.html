@@ -139,7 +139,7 @@
       flex-shrink: 0;
     }
 
-    .profile-column img {
+    .profile-column > figure > img {
       width: 100%;
       height: auto;
       display: block;
@@ -174,14 +174,13 @@
       letter-spacing: 0.5px;
       color: var(--text-muted);
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
 
-    .views-count {
-      font-family: 'Merriweather', Georgia, serif;
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--primary-color);
+    .views-badge {
+      height: 26px;
+      width: auto;
+      display: block;
     }
 
     /* Footer */
@@ -286,7 +285,11 @@
 
         <div class="views-panel">
           <div class="views-header">Unique Profile Views</div>
-          <div class="views-count" id="view-counter">Loading...</div>
+          <img 
+            class="views-badge"
+            src="https://hits.sh" 
+            alt="Unique Profile Views" 
+          />
         </div>
       </aside>
 
@@ -298,4 +301,5 @@
     </footer>
   </div>
 
- 
+</body>
+</html>
