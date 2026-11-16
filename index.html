@@ -6,9 +6,9 @@
   <title>Dr. Ali Hagverdiyev | Department of Mathematics</title>
   
   <!-- Google Fonts for a scholarly pairing: Merriweather (Serif) + Inter (Sans-Serif) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -298,16 +298,36 @@
     </footer>
   </div>
 
-   <script>
-    fetch('counter.php')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('view-counter').textContent = data.count.toLocaleString();
-      })
-      .catch(() => {
-        document.getElementById('view-counter').textContent = '1';
-      });
-  </script>
+  <script>
+    async function trackUniqueViews() {
+      const counterEl = document.getElementById('view-counter');
+      const key = 'umiami-math-ahagverdiyev-2026';
+      const storageKey = 'hagverdiyev_unique_visit_v1';
+      const hasVisited = localStorage.getItem(storageKey);
 
-</body>
-</html>
+      // Primary and backup endpoints
+      const endpoints = hasVisited
+        ? [
+            `https://mileshilliard.com{key}`,
+            `https://counterapi.dev{key}`
+          ]
+        : [
+            `https://mileshilliard.com{key}`,
+            `https://counterapi.dev{key}/up`
+          ];
+
+      for (const url of endpoints) {
+        try {
+          const response = await fetch(url, { cache: 'no-store' });
+          if (!response.ok) continue;
+
+          const data = await response.json();
+          const rawValue = data.value !== undefined ? data.value : data.count;
+          const totalViews = parseInt(rawValue, 10);
+
+          if (!isNaN(totalViews)) {
+            counterEl.textContent = totalViews.toLocaleString();
+            localStorage.setItem(storageKey, 'true');
+            return;
+          }
+
