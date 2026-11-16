@@ -36,6 +36,40 @@
       font-size: 16px;
     }
 
+    /* Hide Radio Inputs for Pure-CSS Language Switching */
+    .lang-radio {
+      display: none;
+    }
+
+    /* Hide all language spans/blocks by default */
+    .lang-en, .lang-az, .lang-tr, .lang-ru, .lang-es {
+      display: none;
+    }
+
+    /* Show active language blocks based on checked radio button */
+    #radio-en:checked ~ .page-wrapper .lang-en { display: inline; }
+    #radio-az:checked ~ .page-wrapper .lang-az { display: inline; }
+    #radio-tr:checked ~ .page-wrapper .lang-tr { display: inline; }
+    #radio-ru:checked ~ .page-wrapper .lang-ru { display: inline; }
+    #radio-es:checked ~ .page-wrapper .lang-es { display: inline; }
+
+    #radio-en:checked ~ .page-wrapper p.lang-en { display: block; }
+    #radio-az:checked ~ .page-wrapper p.lang-az { display: block; }
+    #radio-tr:checked ~ .page-wrapper p.lang-tr { display: block; }
+    #radio-ru:checked ~ .page-wrapper p.lang-ru { display: block; }
+    #radio-es:checked ~ .page-wrapper p.lang-es { display: block; }
+
+    /* Highlight active language label */
+    #radio-en:checked ~ .page-wrapper label[for="radio-en"],
+    #radio-az:checked ~ .page-wrapper label[for="radio-az"],
+    #radio-tr:checked ~ .page-wrapper label[for="radio-tr"],
+    #radio-ru:checked ~ .page-wrapper label[for="radio-ru"],
+    #radio-es:checked ~ .page-wrapper label[for="radio-es"] {
+      background-color: var(--primary-color);
+      color: #ffffff;
+      font-weight: 600;
+    }
+
     /* Main Centered Container */
     .page-wrapper {
       max-width: 1150px;
@@ -60,28 +94,20 @@
       border-bottom: 1px solid var(--border-light);
     }
 
-    .lang-btn {
-      background: transparent;
-      border: 1px solid transparent;
+    .lang-label {
       color: var(--text-muted);
-      font-family: 'Inter', sans-serif;
       font-size: 13px;
       font-weight: 500;
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: 4px;
       cursor: pointer;
+      user-select: none;
       transition: all 0.2s ease;
     }
 
-    .lang-btn:hover {
+    .lang-label:hover {
       background-color: #e9efec;
       color: var(--primary-color);
-    }
-
-    .lang-btn.active {
-      background-color: var(--primary-color);
-      color: #ffffff;
-      font-weight: 600;
     }
 
     /* Three-Column Faculty Layout */
@@ -256,14 +282,21 @@
 </head>
 <body>
 
+  <!-- Language State Radios (English selected by default) -->
+  <input type="radio" name="language" id="radio-en" class="lang-radio" checked>
+  <input type="radio" name="language" id="radio-az" class="lang-radio">
+  <input type="radio" name="language" id="radio-tr" class="lang-radio">
+  <input type="radio" name="language" id="radio-ru" class="lang-radio">
+  <input type="radio" name="language" id="radio-es" class="lang-radio">
+
   <div class="page-wrapper">
     <!-- Top Right Language Bar -->
     <div class="language-bar" role="region" aria-label="Language Selector">
-      <button type="button" class="lang-btn active" data-lang="en">English</button>
-      <button type="button" class="lang-btn" data-lang="az">Azərbaycan</button>
-      <button type="button" class="lang-btn" data-lang="tr">Türkçe</button>
-      <button type="button" class="lang-btn" data-lang="ru">Русский</button>
-      <button type="button" class="lang-btn" data-lang="es">Español</button>
+      <label for="radio-en" class="lang-label">English</label>
+      <label for="radio-az" class="lang-label">Azərbaycan</label>
+      <label for="radio-tr" class="lang-label">Türkçe</label>
+      <label for="radio-ru" class="lang-label">Русский</label>
+      <label for="radio-es" class="lang-label">Español</label>
     </div>
 
     <!-- Main Layout -->
@@ -272,57 +305,42 @@
       <!-- Left Sidebar Navigation -->
       <nav class="sidebar" aria-label="Faculty Navigation">
         <ul class="nav-list">
-          <li><a href="index.html" class="active" data-i18n="navBio">Bio</a></li>
-          <li><a href="OfficeHours.html" data-i18n="navOfficeHours">Office Hours</a></li>
-          <li><a href="Publications.html" data-i18n="navPublications">Publications</a></li>
-          <li><a href="Conferences.html" data-i18n="navConferences">Conferences</a></li>
-          <li><a href="Teaching.html" data-i18n="navTeaching">Teaching</a></li>
-          <li><a href="AMSChapter.html" data-i18n="navAms">AMS Chapter</a></li>
-          <li><a href="CV.html" target="_blank" data-i18n="navCv">CV</a></li>
-        </ul>
-      </nav>
+          <li>
+            <a href="index.html" class="active">
+              <span class="lang-en">Bio</span>
+              <span class="lang-az">Bioqrafiya</span>
+              <span class="lang-tr">Biyografi</span>
+              <span class="lang-ru">Биография</span>
+              <span class="lang-es">Biografía</span>
+            </a>
+          </li>
+          <li>
+            <a href="OfficeHours.html">
+              <span class="lang-en">Office Hours</span>
+              <span class="lang-az">Ofis Saatları</span>
+              <span class="lang-tr">Ofis Saatleri</span>
+              <span class="lang-ru">Часы приёма</span>
+              <span class="lang-es">Horas de Oficina</span>
+            </a>
+          </li>
+          <li>
+            <a href="Publications.html">
+              <span class="lang-en">Publications</span>
+              <span class="lang-az">Nəşrlər</span>
+              <span class="lang-tr">Yayınlar</span>
+              <span class="lang-ru">Публикации</span>
+              <span class="lang-es">Publicaciones</span>
+            </a>
+          </li>
+          <li>
+            <a href="Conferences.html">
+              <span class="lang-en">Conferences</span>
+              <span class="lang-az">Konfranslar</span>
+              <span class="lang-tr">Konferanslar</span>
+              <span class="lang-ru">Конференции</span>
+              <span class="lang-es">Conferencias</span>
+            </a>
+          </li>
+          <li>
+            <a href="Teaching.html">
 
-      <!-- Center Main Biography Section -->
-      <main class="main-content">
-        <div class="faculty-header">
-          <h1 class="faculty-name" data-i18n="name">Dr. Ali Hagverdiyev</h1>
-          <p class="faculty-title" data-i18n="title">Lecturer, Department of Mathematics &bull; University of Miami</p>
-        </div>
-
-        <section class="bio-text">
-          <h2 class="section-heading" data-i18n="bioHeading">Bio</h2>
-          <p data-i18n="bioP1">
-            Dr. Hagverdiyev earned his Bachelor’s degree in Applied Mathematics from Baku State University in Azerbaijan, where his high entrance exam score earned him both a tuition waiver and a stipend. After receiving a competitive scholarship through the Azerbaijani Ministry of Education's Study Abroad Program, he continued his education at the University of Nottingham, earning a Master’s degree in Pure Mathematics. He later went on to earn both a Master’s degree and a PhD in Applied Mathematics from the Florida Institute of Technology.
-          </p>
-          <p data-i18n="bioP2">
-            In addition to his academic achievements, Dr. Hagverdiyev brings extensive teaching experience to his role. While completing his studies, he served as a teaching assistant at Texas A&amp;M University and the Florida Institute of Technology, worked as a part-time lecturer at Keiser University, and tutored online for Holyoke Community College. Following his PhD, he joined Springdale Preparatory School as a full-time teacher, where he also earned his International Baccalaureate (IB) Category 1 certification in Mathematics: Applications and Interpretation. Since 2011, Dr. Hagverdiyev has served as a full-time lecturer at the University of Miami.
-          </p>
-        </section>
-      </main>
-
-      <!-- Right Column Image -->
-      <aside class="profile-column">
-        <figure>
-          <img src="pic_link.jpg" alt="Dr. Ali Hagverdiyev">
-          <figcaption data-i18n="caption">The Roman Baths, Bath, UK</figcaption>
-        </figure>
-      </aside>
-
-    </div>
-
-    <!-- Clean Institutional Footer -->
-    <footer class="site-footer" data-i18n="footer">
-      &copy; Dr. Ali Hagverdiyev &bull; Department of Mathematics, University of Miami
-    </footer>
-  </div>
-
-  <script>
-    const translations = {
-      en: {
-        navBio: "Bio",
-        navOfficeHours: "Office Hours",
-        navPublications: "Publications",
-        navConferences: "Conferences",
-        navTeaching: "Teaching",
-        navAms: "AMS Chapter",
-        navCv: "CV",
