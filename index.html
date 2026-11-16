@@ -299,29 +299,30 @@
   </div>
 
   <script>
-    (async function () {
+    (function () {
       const counterEl = document.getElementById('view-counter');
-      
-      // PASTE YOUR FREE FIREBASE URL BELOW (no trailing slash):
-      const DB_URL = 'https://firebaseio.com';
-      const storageKey = 'hagverdiyev_unique_visit_v1';
+      const namespace = 'dr-ali-hagverdiyev-umiami';
+      const key = 'profile-unique-views';
+      const storageKey = 'hagverdiyev_visited_flag';
 
-      if (DB_URL.includes('YOUR-PROJECT-ID')) {
-        return; // Displays '1' cleanly until you paste your Firebase URL
-      }
+      // Check if this browser has already been counted
+      const alreadyCounted = localStorage.getItem(storageKey);
+      const url = alreadyCounted
+        ? `https://counterapi.dev{namespace}/${key}`
+        : `https://counterapi.dev{namespace}/${key}/up`;
 
-      try {
-        // 1. Get the visitor's public IP address
-        const ipRes = await fetch('https://ipify.org');
-        const ipData = await ipRes.json();
-        // Sanitize IP (replace dots/colons with underscores so it works as a database key)
-        const safeIpKey = ipData.ip.replace(/[.:]/g, '_');
-
-        // 2. Check if this IP already exists in your database
-        const checkRes = await fetch(`${DB_URL}/visitors/${safeIpKey}.json`);
-        const alreadyExists = await checkRes.json();
-
-        // 3. If it's a brand new IP, record it
-        if (!alreadyExists && !localStorage.getItem(storageKey)) {
-          await fetch(`${DB_URL}/visitors/${safeIpKey}.json`, {
-            method: 'PUT',
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          if (data && typeof data.count === 'number') {
+            counterEl.textContent = data.count.toLocaleString();
+            localStorage.setItem(storageKey, 'true');
+          }
+        })
+        .catch(err => {
+          console.warn('Counter blocked by network/adblocker:', err);
+        });
+    })();
+  </script>
+</body>
+</html>
