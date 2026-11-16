@@ -298,28 +298,16 @@
     </footer>
   </div>
 
-  <script>
-    async function trackUniqueViews() {
-      const counterEl = document.getElementById('view-counter');
-      const namespace = 'umiami-math-ahagverdiyev';
-      const key = 'profile-views';
-
-      const alreadyCounted = localStorage.getItem('hagverdiyev_profile_visited');
-      const url = alreadyCounted
-        ? `https://counterapi.dev{namespace}/${key}`
-        : `https://counterapi.dev{namespace}/${key}/up`;
-
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        counterEl.textContent = (data.count || 1).toLocaleString();
-        localStorage.setItem('hagverdiyev_profile_visited', 'true');
-      } catch (error) {
-        counterEl.textContent = '—';
-      }
-    }
-
-    trackUniqueViews();
+   <script>
+    fetch('counter.php')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('view-counter').textContent = data.count.toLocaleString();
+      })
+      .catch(() => {
+        document.getElementById('view-counter').textContent = '1';
+      });
   </script>
+
 </body>
 </html>
