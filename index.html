@@ -48,6 +48,42 @@
       border-top: 4px solid var(--accent-color);
     }
 
+    /* Top Right Language Bar */
+    .language-bar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 12px 40px;
+      background-color: #f8f9fa;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn:hover {
+      background-color: #e9efec;
+      color: var(--primary-color);
+    }
+
+    .lang-btn.active {
+      background-color: var(--primary-color);
+      color: #ffffff;
+      font-weight: 600;
+    }
+
     /* Three-Column Faculty Layout */
     .content-grid {
       display: flex;
@@ -139,7 +175,7 @@
       flex-shrink: 0;
     }
 
-    .profile-column > figure > img {
+    .profile-column img {
       width: 100%;
       height: auto;
       display: block;
@@ -155,33 +191,6 @@
       margin-top: 8px;
       text-align: center;
       font-style: italic;
-    }
-
-    /* Unique Profile Views Panel */
-    .views-panel {
-      margin-top: 20px;
-      padding: 16px;
-      background-color: var(--bg-page);
-      border: 1px solid var(--border-light);
-      border-left: 4px solid var(--primary-color);
-      border-radius: 6px;
-      text-align: left;
-    }
-
-    .views-header {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--text-muted);
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .views-count {
-      font-family: 'Merriweather', Georgia, serif;
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--primary-color);
     }
 
     /* Footer */
@@ -214,6 +223,11 @@
         border-top: 4px solid var(--accent-color);
       }
 
+      .language-bar {
+        padding: 12px 25px;
+        justify-content: center;
+      }
+
       .content-grid {
         flex-direction: column;
         padding: 25px;
@@ -243,86 +257,72 @@
 <body>
 
   <div class="page-wrapper">
+    <!-- Top Right Language Bar -->
+    <div class="language-bar" role="region" aria-label="Language Selector">
+      <button type="button" class="lang-btn active" data-lang="en">English</button>
+      <button type="button" class="lang-btn" data-lang="az">Azərbaycan</button>
+      <button type="button" class="lang-btn" data-lang="tr">Türkçe</button>
+      <button type="button" class="lang-btn" data-lang="ru">Русский</button>
+      <button type="button" class="lang-btn" data-lang="es">Español</button>
+    </div>
+
     <!-- Main Layout -->
     <div class="content-grid">
       
       <!-- Left Sidebar Navigation -->
       <nav class="sidebar" aria-label="Faculty Navigation">
         <ul class="nav-list">
-          <li><a href="index.html" class="active">Bio</a></li>
-          <li><a href="OfficeHours.html">Office Hours</a></li>
-          <li><a href="Publications.html">Publications</a></li>
-          <li><a href="Conferences.html">Conferences</a></li>
-          <li><a href="Teaching.html">Teaching</a></li>
-          <li><a href="AMSChapter.html">AMS Chapter</a></li>
-          <li><a href="CV.html" target="_blank">CV</a></li>
+          <li><a href="index.html" class="active" data-i18n="navBio">Bio</a></li>
+          <li><a href="OfficeHours.html" data-i18n="navOfficeHours">Office Hours</a></li>
+          <li><a href="Publications.html" data-i18n="navPublications">Publications</a></li>
+          <li><a href="Conferences.html" data-i18n="navConferences">Conferences</a></li>
+          <li><a href="Teaching.html" data-i18n="navTeaching">Teaching</a></li>
+          <li><a href="AMSChapter.html" data-i18n="navAms">AMS Chapter</a></li>
+          <li><a href="CV.html" target="_blank" data-i18n="navCv">CV</a></li>
         </ul>
       </nav>
 
       <!-- Center Main Biography Section -->
       <main class="main-content">
         <div class="faculty-header">
-          <h1 class="faculty-name">Dr. Ali Hagverdiyev</h1>
-          <p class="faculty-title">Lecturer, Department of Mathematics &bull; University of Miami</p>
+          <h1 class="faculty-name" data-i18n="name">Dr. Ali Hagverdiyev</h1>
+          <p class="faculty-title" data-i18n="title">Lecturer, Department of Mathematics &bull; University of Miami</p>
         </div>
 
         <section class="bio-text">
-          <h2 class="section-heading">Bio</h2>
-          <p>
+          <h2 class="section-heading" data-i18n="bioHeading">Bio</h2>
+          <p data-i18n="bioP1">
             Dr. Hagverdiyev earned his Bachelor’s degree in Applied Mathematics from Baku State University in Azerbaijan, where his high entrance exam score earned him both a tuition waiver and a stipend. After receiving a competitive scholarship through the Azerbaijani Ministry of Education's Study Abroad Program, he continued his education at the University of Nottingham, earning a Master’s degree in Pure Mathematics. He later went on to earn both a Master’s degree and a PhD in Applied Mathematics from the Florida Institute of Technology.
           </p>
-          <p>
+          <p data-i18n="bioP2">
             In addition to his academic achievements, Dr. Hagverdiyev brings extensive teaching experience to his role. While completing his studies, he served as a teaching assistant at Texas A&amp;M University and the Florida Institute of Technology, worked as a part-time lecturer at Keiser University, and tutored online for Holyoke Community College. Following his PhD, he joined Springdale Preparatory School as a full-time teacher, where he also earned his International Baccalaureate (IB) Category 1 certification in Mathematics: Applications and Interpretation. Since 2011, Dr. Hagverdiyev has served as a full-time lecturer at the University of Miami.
           </p>
         </section>
       </main>
 
-      <!-- Right Column Image & Views Panel -->
+      <!-- Right Column Image -->
       <aside class="profile-column">
         <figure>
           <img src="pic_link.jpg" alt="Dr. Ali Hagverdiyev">
-          <figcaption>The Roman Baths, Bath, UK</figcaption>
+          <figcaption data-i18n="caption">The Roman Baths, Bath, UK</figcaption>
         </figure>
-
-        <div class="views-panel">
-          <div class="views-header">Unique Profile Views</div>
-          <div class="views-count" id="view-counter">1</div>
-        </div>
       </aside>
 
     </div>
 
     <!-- Clean Institutional Footer -->
-    <footer class="site-footer">
+    <footer class="site-footer" data-i18n="footer">
       &copy; Dr. Ali Hagverdiyev &bull; Department of Mathematics, University of Miami
     </footer>
   </div>
 
   <script>
-    (function () {
-      const counterEl = document.getElementById('view-counter');
-      const namespace = 'dr-ali-hagverdiyev-umiami';
-      const key = 'profile-unique-views';
-      const storageKey = 'hagverdiyev_visited_flag';
-
-      // Check if this browser has already been counted
-      const alreadyCounted = localStorage.getItem(storageKey);
-      const url = alreadyCounted
-        ? `https://counterapi.dev{namespace}/${key}`
-        : `https://counterapi.dev{namespace}/${key}/up`;
-
-      fetch(url)
-        .then(res => res.json())
-        .then(data => {
-          if (data && typeof data.count === 'number') {
-            counterEl.textContent = data.count.toLocaleString();
-            localStorage.setItem(storageKey, 'true');
-          }
-        })
-        .catch(err => {
-          console.warn('Counter blocked by network/adblocker:', err);
-        });
-    })();
-  </script>
-</body>
-</html>
+    const translations = {
+      en: {
+        navBio: "Bio",
+        navOfficeHours: "Office Hours",
+        navPublications: "Publications",
+        navConferences: "Conferences",
+        navTeaching: "Teaching",
+        navAms: "AMS Chapter",
+        navCv: "CV",
