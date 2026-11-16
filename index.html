@@ -298,36 +298,4 @@
     </footer>
   </div>
 
-  <script>
-    async function trackUniqueViews() {
-      const counterEl = document.getElementById('view-counter');
-      const key = 'umiami-math-ahagverdiyev-2026';
-      const storageKey = 'hagverdiyev_unique_visit_v1';
-      const hasVisited = localStorage.getItem(storageKey);
-
-      // Primary and backup endpoints
-      const endpoints = hasVisited
-        ? [
-            `https://mileshilliard.com{key}`,
-            `https://counterapi.dev{key}`
-          ]
-        : [
-            `https://mileshilliard.com{key}`,
-            `https://counterapi.dev{key}/up`
-          ];
-
-      for (const url of endpoints) {
-        try {
-          const response = await fetch(url, { cache: 'no-store' });
-          if (!response.ok) continue;
-
-          const data = await response.json();
-          const rawValue = data.value !== undefined ? data.value : data.count;
-          const totalViews = parseInt(rawValue, 10);
-
-          if (!isNaN(totalViews)) {
-            counterEl.textContent = totalViews.toLocaleString();
-            localStorage.setItem(storageKey, 'true');
-            return;
-          }
-
+ 
