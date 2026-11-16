@@ -5,21 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dr. Ali Hagverdiyev | Department of Mathematics</title>
   
-  <!-- Google Fonts for a scholarly pairing: Merriweather (Serif) + Inter (Sans-Serif) -->
   <link rel="preconnect" href="https://googleapis.com">
   <link rel="preconnect" href="https://gstatic.com" crossorigin>
   <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      /* University of Miami inspired refined palette */
-      --primary-color: #005030;      /* Deep Institutional Green */
-      --accent-color: #f47321;       /* Subtle Academic Orange Accent */
-      --text-main: #222222;          /* High-contrast charcoal for readability */
-      --text-muted: #555555;         /* Secondary metadata text */
-      --bg-page: #f8f9fa;            /* Light off-white page background */
-      --bg-card: #ffffff;            /* Crisp white content area */
-      --border-light: #e2e8f0;       /* Subtle structural dividers */
+      --primary-color: #005030;
+      --accent-color: #f47321;
+      --text-main: #222222;
+      --text-muted: #555555;
+      --bg-page: #f8f9fa;
+      --bg-card: #ffffff;
+      --border-light: #e2e8f0;
     }
 
     * {
@@ -36,7 +34,6 @@
       font-size: 16px;
     }
 
-    /* Main Centered Container */
     .page-wrapper {
       max-width: 1150px;
       margin: 30px auto;
@@ -60,31 +57,27 @@
       border-bottom: 1px solid var(--border-light);
     }
 
-    .lang-btn {
-      background: transparent;
-      border: 1px solid transparent;
+    .lang-link {
+      text-decoration: none;
       color: var(--text-muted);
-      font-family: 'Inter', sans-serif;
       font-size: 13px;
       font-weight: 500;
       padding: 5px 12px;
       border-radius: 4px;
-      cursor: pointer;
       transition: all 0.2s ease;
     }
 
-    .lang-btn:hover {
+    .lang-link:hover {
       background-color: #e9efec;
       color: var(--primary-color);
     }
 
-    .lang-btn.active {
+    .lang-link.active {
       background-color: var(--primary-color);
       color: #ffffff;
       font-weight: 600;
     }
 
-    /* Three-Column Faculty Layout */
     .content-grid {
       display: flex;
       flex-direction: row;
@@ -93,7 +86,6 @@
       gap: 40px;
     }
 
-    /* Left Sidebar Navigation */
     .sidebar {
       width: 220px;
       flex-shrink: 0;
@@ -131,7 +123,6 @@
       color: #ffffff;
     }
 
-    /* Center Main Content Area */
     .main-content {
       flex: 1;
     }
@@ -169,7 +160,6 @@
       text-align: left;
     }
 
-    /* Right Profile Photo Column */
     .profile-column {
       width: 250px;
       flex-shrink: 0;
@@ -193,7 +183,6 @@
       font-style: italic;
     }
 
-    /* Footer */
     .site-footer {
       text-align: center;
       padding: 20px;
@@ -203,7 +192,6 @@
       border-top: 1px solid var(--border-light);
     }
 
-    /* Mobile & Tablet Responsiveness */
     @media screen and (max-width: 900px) {
       .content-grid {
         flex-wrap: wrap;
@@ -257,14 +245,13 @@
 <body>
 
   <div class="page-wrapper">
-    
     <!-- Top Right Language Bar -->
-    <div class="language-bar" role="region" aria-label="Language Selector">
-      <a href="#en" class="lang-btn active" id="btn-en" onclick="return switchLang('en')">English</a>
-      <a href="#az" class="lang-btn" id="btn-az" onclick="return switchLang('az')">Azərbaycan</a>
-      <a href="#tr" class="lang-btn" id="btn-tr" onclick="return switchLang('tr')">Türkçe</a>
-      <a href="#ru" class="lang-btn" id="btn-ru" onclick="return switchLang('ru')">Русский</a>
-      <a href="#es" class="lang-btn" id="btn-es" onclick="return switchLang('es')">Español</a>
+    <div class="language-bar" role="navigation" aria-label="Language Selector">
+      <a href="index.html" class="lang-link active">English</a>
+      <a href="index-az.html" class="lang-link">Azərbaycan</a>
+      <a href="index-tr.html" class="lang-link">Türkçe</a>
+      <a href="index-ru.html" class="lang-link">Русский</a>
+      <a href="index-es.html" class="lang-link">Español</a>
     </div>
 
     <!-- Main Layout -->
@@ -273,29 +260,29 @@
       <!-- Left Sidebar Navigation -->
       <nav class="sidebar" aria-label="Faculty Navigation">
         <ul class="nav-list">
-          <li><a href="index.html" class="active" id="navBio">Bio</a></li>
-          <li><a href="OfficeHours.html" id="navOfficeHours">Office Hours</a></li>
-          <li><a href="Publications.html" id="navPublications">Publications</a></li>
-          <li><a href="Conferences.html" id="navConferences">Conferences</a></li>
-          <li><a href="Teaching.html" id="navTeaching">Teaching</a></li>
-          <li><a href="AMSChapter.html" id="navAms">AMS Chapter</a></li>
-          <li><a href="CV.html" target="_blank" id="navCv">CV</a></li>
+          <li><a href="index.html" class="active">Bio</a></li>
+          <li><a href="OfficeHours.html">Office Hours</a></li>
+          <li><a href="Publications.html">Publications</a></li>
+          <li><a href="Conferences.html">Conferences</a></li>
+          <li><a href="Teaching.html">Teaching</a></li>
+          <li><a href="AMSChapter.html">AMS Chapter</a></li>
+          <li><a href="CV.html" target="_blank">CV</a></li>
         </ul>
       </nav>
 
       <!-- Center Main Biography Section -->
       <main class="main-content">
         <div class="faculty-header">
-          <h1 class="faculty-name" id="facultyName">Dr. Ali Hagverdiyev</h1>
-          <p class="faculty-title" id="facultyTitle">Lecturer, Department of Mathematics &bull; University of Miami</p>
+          <h1 class="faculty-name">Dr. Ali Hagverdiyev</h1>
+          <p class="faculty-title">Lecturer, Department of Mathematics &bull; University of Miami</p>
         </div>
 
         <section class="bio-text">
-          <h2 class="section-heading" id="bioHeading">Bio</h2>
-          <p id="bioP1">
+          <h2 class="section-heading">Bio</h2>
+          <p>
             Dr. Hagverdiyev earned his Bachelor’s degree in Applied Mathematics from Baku State University in Azerbaijan, where his high entrance exam score earned him both a tuition waiver and a stipend. After receiving a competitive scholarship through the Azerbaijani Ministry of Education's Study Abroad Program, he continued his education at the University of Nottingham, earning a Master’s degree in Pure Mathematics. He later went on to earn both a Master’s degree and a PhD in Applied Mathematics from the Florida Institute of Technology.
           </p>
-          <p id="bioP2">
+          <p>
             In addition to his academic achievements, Dr. Hagverdiyev brings extensive teaching experience to his role. While completing his studies, he served as a teaching assistant at Texas A&amp;M University and the Florida Institute of Technology, worked as a part-time lecturer at Keiser University, and tutored online for Holyoke Community College. Following his PhD, he joined Springdale Preparatory School as a full-time teacher, where he also earned his International Baccalaureate (IB) Category 1 certification in Mathematics: Applications and Interpretation. Since 2011, Dr. Hagverdiyev has served as a full-time lecturer at the University of Miami.
           </p>
         </section>
@@ -305,25 +292,17 @@
       <aside class="profile-column">
         <figure>
           <img src="pic_link.jpg" alt="Dr. Ali Hagverdiyev">
-          <figcaption id="imgCaption">The Roman Baths, Bath, UK</figcaption>
+          <figcaption>The Roman Baths, Bath, UK</figcaption>
         </figure>
       </aside>
 
     </div>
 
     <!-- Clean Institutional Footer -->
-    <footer class="site-footer" id="siteFooter">
+    <footer class="site-footer">
       &copy; Dr. Ali Hagverdiyev &bull; Department of Mathematics, University of Miami
     </footer>
   </div>
 
-  <script>
-    var translations = {
-      en: {
-        navBio: "Bio",
-        navOfficeHours: "Office Hours",
-        navPublications: "Publications",
-        navConferences: "Conferences",
-        navTeaching: "Teaching",
-        navAms: "AMS Chapter",
-        navCv: "CV",
+</body>
+</html>
