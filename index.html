@@ -6,9 +6,9 @@
   <title>Dr. Ali Hagverdiyev | Department of Mathematics</title>
   
   <!-- Google Fonts for a scholarly pairing: Merriweather (Serif) + Inter (Sans-Serif) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -36,35 +36,35 @@
       font-size: 16px;
     }
 
-    /* Hide Radio Inputs for Pure-CSS Language Switching */
+    /* Hide Radio Buttons */
     .lang-radio {
       display: none;
     }
 
-    /* Hide all language spans and paragraphs by default */
-    .lang-en, .lang-az, .lang-tr, .lang-ru, .lang-es {
+    /* Hide non-active language elements */
+    [data-lang] {
       display: none;
     }
 
-    /* Show inline language spans based on active radio button */
-    #radio-en:checked ~ .page-wrapper span.lang-en,
-    #radio-az:checked ~ .page-wrapper span.lang-az,
-    #radio-tr:checked ~ .page-wrapper span.lang-tr,
-    #radio-ru:checked ~ .page-wrapper span.lang-ru,
-    #radio-es:checked ~ .page-wrapper span.lang-es {
+    /* Show inline spans for active language */
+    #radio-en:checked ~ .page-wrapper span[data-lang="en"],
+    #radio-az:checked ~ .page-wrapper span[data-lang="az"],
+    #radio-tr:checked ~ .page-wrapper span[data-lang="tr"],
+    #radio-ru:checked ~ .page-wrapper span[data-lang="ru"],
+    #radio-es:checked ~ .page-wrapper span[data-lang="es"] {
       display: inline;
     }
 
-    /* Show block language paragraphs based on active radio button */
-    #radio-en:checked ~ .page-wrapper p.lang-en,
-    #radio-az:checked ~ .page-wrapper p.lang-az,
-    #radio-tr:checked ~ .page-wrapper p.lang-tr,
-    #radio-ru:checked ~ .page-wrapper p.lang-ru,
-    #radio-es:checked ~ .page-wrapper p.lang-es {
+    /* Show paragraphs for active language */
+    #radio-en:checked ~ .page-wrapper p[data-lang="en"],
+    #radio-az:checked ~ .page-wrapper p[data-lang="az"],
+    #radio-tr:checked ~ .page-wrapper p[data-lang="tr"],
+    #radio-ru:checked ~ .page-wrapper p[data-lang="ru"],
+    #radio-es:checked ~ .page-wrapper p[data-lang="es"] {
       display: block;
     }
 
-    /* Highlight active language button in the top-right bar */
+    /* Active Language Button Styling */
     #radio-en:checked ~ .page-wrapper label[for="radio-en"],
     #radio-az:checked ~ .page-wrapper label[for="radio-az"],
     #radio-tr:checked ~ .page-wrapper label[for="radio-tr"],
@@ -287,7 +287,7 @@
 </head>
 <body>
 
-  <!-- Language Selection State (English checked by default) -->
+  <!-- Language Selection Radios (English by default) -->
   <input type="radio" name="language" id="radio-en" class="lang-radio" checked>
   <input type="radio" name="language" id="radio-az" class="lang-radio">
   <input type="radio" name="language" id="radio-tr" class="lang-radio">
@@ -313,41 +313,43 @@
         <ul class="nav-list">
           <li>
             <a href="index.html" class="active">
-              <span class="lang-en">Bio</span>
-              <span class="lang-az">Bioqrafiya</span>
-              <span class="lang-tr">Biyografi</span>
-              <span class="lang-ru">Биография</span>
-              <span class="lang-es">Biografía</span>
+              <span data-lang="en">Bio</span>
+              <span data-lang="az">Bioqrafiya</span>
+              <span data-lang="tr">Biyografi</span>
+              <span data-lang="ru">Биография</span>
+              <span data-lang="es">Biografía</span>
             </a>
           </li>
           <li>
             <a href="OfficeHours.html">
-              <span class="lang-en">Office Hours</span>
-              <span class="lang-az">Ofis Saatları</span>
-              <span class="lang-tr">Ofis Saatleri</span>
-              <span class="lang-ru">Часы приёма</span>
-              <span class="lang-es">Horas de Oficina</span>
+              <span data-lang="en">Office Hours</span>
+              <span data-lang="az">Ofis Saatları</span>
+              <span data-lang="tr">Ofis Saatleri</span>
+              <span data-lang="ru">Часы приёма</span>
+              <span data-lang="es">Horas de Oficina</span>
             </a>
           </li>
           <li>
             <a href="Publications.html">
-              <span class="lang-en">Publications</span>
-              <span class="lang-az">Nəşrlər</span>
-              <span class="lang-tr">Yayınlar</span>
-              <span class="lang-ru">Публикации</span>
-              <span class="lang-es">Publicaciones</span>
+              <span data-lang="en">Publications</span>
+              <span data-lang="az">Nəşrlər</span>
+              <span data-lang="tr">Yayınlar</span>
+              <span data-lang="ru">Публикации</span>
+              <span data-lang="es">Publicaciones</span>
             </a>
           </li>
           <li>
             <a href="Conferences.html">
-              <span class="lang-en">Conferences</span>
-              <span class="lang-az">Konfranslar</span>
-              <span class="lang-tr">Konferanslar</span>
-              <span class="lang-ru">Конференции</span>
-              <span class="lang-es">Conferencias</span>
+              <span data-lang="en">Conferences</span>
+              <span data-lang="az">Konfranslar</span>
+              <span data-lang="tr">Konferanslar</span>
+              <span data-lang="ru">Конференции</span>
+              <span data-lang="es">Conferencias</span>
             </a>
           </li>
           <li>
             <a href="Teaching.html">
-              <span class="lang-en">Teaching</span>
-              <span class="lang-az">Tədris</span>
+              <span data-lang="en">Teaching</span>
+              <span data-lang="az">Tədris</span>
+              <span data-lang="tr">Dersler</span>
+              <span data-lang="ru">Преподавание</span>
