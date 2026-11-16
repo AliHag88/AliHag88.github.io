@@ -5,19 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dr. Ali Hagverdiyev | Department of Mathematics</title>
   
+  <!-- Google Fonts for a scholarly pairing: Merriweather (Serif) + Inter (Sans-Serif) -->
   <link rel="preconnect" href="https://googleapis.com">
   <link rel="preconnect" href="https://gstatic.com" crossorigin>
   <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --primary-color: #005030;
-      --accent-color: #f47321;
-      --text-main: #222222;
-      --text-muted: #555555;
-      --bg-page: #f8f9fa;
-      --bg-card: #ffffff;
-      --border-light: #e2e8f0;
+      /* University of Miami inspired refined palette */
+      --primary-color: #005030;      /* Deep Institutional Green */
+      --accent-color: #f47321;       /* Subtle Academic Orange Accent */
+      --text-main: #222222;          /* High-contrast charcoal for readability */
+      --text-muted: #555555;         /* Secondary metadata text */
+      --bg-page: #f8f9fa;            /* Light off-white page background */
+      --bg-card: #ffffff;            /* Crisp white content area */
+      --border-light: #e2e8f0;       /* Subtle structural dividers */
     }
 
     * {
@@ -34,6 +36,7 @@
       font-size: 16px;
     }
 
+    /* Main Centered Container */
     .page-wrapper {
       max-width: 1150px;
       margin: 30px auto;
@@ -43,6 +46,50 @@
       overflow: hidden;
       border: 1px solid var(--border-light);
       border-top: 4px solid var(--accent-color);
+    }
+
+    /* Hide Radio Buttons */
+    .lang-radio {
+      display: none;
+    }
+
+    /* Hide all language blocks by default */
+    .l-en, .l-az, .l-tr, .l-ru, .l-es {
+      display: none;
+    }
+
+    /* Show inline text for selected language */
+    #lang-en:checked ~ .content-grid span.l-en,
+    #lang-en:checked ~ .site-footer span.l-en,
+    #lang-az:checked ~ .content-grid span.l-az,
+    #lang-az:checked ~ .site-footer span.l-az,
+    #lang-tr:checked ~ .content-grid span.l-tr,
+    #lang-tr:checked ~ .site-footer span.l-tr,
+    #lang-ru:checked ~ .content-grid span.l-ru,
+    #lang-ru:checked ~ .site-footer span.l-ru,
+    #lang-es:checked ~ .content-grid span.l-es,
+    #lang-es:checked ~ .site-footer span.l-es {
+      display: inline;
+    }
+
+    /* Show paragraphs for selected language */
+    #lang-en:checked ~ .content-grid p.l-en,
+    #lang-az:checked ~ .content-grid p.l-az,
+    #lang-tr:checked ~ .content-grid p.l-tr,
+    #lang-ru:checked ~ .content-grid p.l-ru,
+    #lang-es:checked ~ .content-grid p.l-es {
+      display: block;
+    }
+
+    /* Active Language Button Highlight */
+    #lang-en:checked ~ .language-bar label[for="lang-en"],
+    #lang-az:checked ~ .language-bar label[for="lang-az"],
+    #lang-tr:checked ~ .language-bar label[for="lang-tr"],
+    #lang-ru:checked ~ .language-bar label[for="lang-ru"],
+    #lang-es:checked ~ .language-bar label[for="lang-es"] {
+      background-color: var(--primary-color);
+      color: #ffffff;
+      font-weight: 600;
     }
 
     /* Top Right Language Bar */
@@ -57,27 +104,23 @@
       border-bottom: 1px solid var(--border-light);
     }
 
-    .lang-link {
-      text-decoration: none;
+    .lang-btn {
       color: var(--text-muted);
       font-size: 13px;
       font-weight: 500;
       padding: 5px 12px;
       border-radius: 4px;
+      cursor: pointer;
+      user-select: none;
       transition: all 0.2s ease;
     }
 
-    .lang-link:hover {
+    .lang-btn:hover {
       background-color: #e9efec;
       color: var(--primary-color);
     }
 
-    .lang-link.active {
-      background-color: var(--primary-color);
-      color: #ffffff;
-      font-weight: 600;
-    }
-
+    /* Three-Column Faculty Layout */
     .content-grid {
       display: flex;
       flex-direction: row;
@@ -86,6 +129,7 @@
       gap: 40px;
     }
 
+    /* Left Sidebar Navigation */
     .sidebar {
       width: 220px;
       flex-shrink: 0;
@@ -123,6 +167,7 @@
       color: #ffffff;
     }
 
+    /* Center Main Content Area */
     .main-content {
       flex: 1;
     }
@@ -160,6 +205,7 @@
       text-align: left;
     }
 
+    /* Right Profile Photo Column */
     .profile-column {
       width: 250px;
       flex-shrink: 0;
@@ -183,6 +229,7 @@
       font-style: italic;
     }
 
+    /* Footer */
     .site-footer {
       text-align: center;
       padding: 20px;
@@ -192,6 +239,7 @@
       border-top: 1px solid var(--border-light);
     }
 
+    /* Mobile & Tablet Responsiveness */
     @media screen and (max-width: 900px) {
       .content-grid {
         flex-wrap: wrap;
@@ -245,13 +293,20 @@
 <body>
 
   <div class="page-wrapper">
+    <!-- Language State Controls (English selected by default) -->
+    <input type="radio" name="site-lang" id="lang-en" class="lang-radio" checked>
+    <input type="radio" name="site-lang" id="lang-az" class="lang-radio">
+    <input type="radio" name="site-lang" id="lang-tr" class="lang-radio">
+    <input type="radio" name="site-lang" id="lang-ru" class="lang-radio">
+    <input type="radio" name="site-lang" id="lang-es" class="lang-radio">
+
     <!-- Top Right Language Bar -->
-    <div class="language-bar" role="navigation" aria-label="Language Selector">
-      <a href="index.html" class="lang-link active">English</a>
-      <a href="index-az.html" class="lang-link">Azərbaycan</a>
-      <a href="index-tr.html" class="lang-link">Türkçe</a>
-      <a href="index-ru.html" class="lang-link">Русский</a>
-      <a href="index-es.html" class="lang-link">Español</a>
+    <div class="language-bar" role="region" aria-label="Language Selector">
+      <label for="lang-en" class="lang-btn">English</label>
+      <label for="lang-az" class="lang-btn">Azərbaycan</label>
+      <label for="lang-tr" class="lang-btn">Türkçe</label>
+      <label for="lang-ru" class="lang-btn">Русский</label>
+      <label for="lang-es" class="lang-btn">Español</label>
     </div>
 
     <!-- Main Layout -->
@@ -260,49 +315,42 @@
       <!-- Left Sidebar Navigation -->
       <nav class="sidebar" aria-label="Faculty Navigation">
         <ul class="nav-list">
-          <li><a href="index.html" class="active">Bio</a></li>
-          <li><a href="OfficeHours.html">Office Hours</a></li>
-          <li><a href="Publications.html">Publications</a></li>
-          <li><a href="Conferences.html">Conferences</a></li>
-          <li><a href="Teaching.html">Teaching</a></li>
-          <li><a href="AMSChapter.html">AMS Chapter</a></li>
-          <li><a href="CV.html" target="_blank">CV</a></li>
-        </ul>
-      </nav>
-
-      <!-- Center Main Biography Section -->
-      <main class="main-content">
-        <div class="faculty-header">
-          <h1 class="faculty-name">Dr. Ali Hagverdiyev</h1>
-          <p class="faculty-title">Lecturer, Department of Mathematics &bull; University of Miami</p>
-        </div>
-
-        <section class="bio-text">
-          <h2 class="section-heading">Bio</h2>
-          <p>
-            Dr. Hagverdiyev earned his Bachelor’s degree in Applied Mathematics from Baku State University in Azerbaijan, where his high entrance exam score earned him both a tuition waiver and a stipend. After receiving a competitive scholarship through the Azerbaijani Ministry of Education's Study Abroad Program, he continued his education at the University of Nottingham, earning a Master’s degree in Pure Mathematics. He later went on to earn both a Master’s degree and a PhD in Applied Mathematics from the Florida Institute of Technology.
-          </p>
-          <p>
-            In addition to his academic achievements, Dr. Hagverdiyev brings extensive teaching experience to his role. While completing his studies, he served as a teaching assistant at Texas A&amp;M University and the Florida Institute of Technology, worked as a part-time lecturer at Keiser University, and tutored online for Holyoke Community College. Following his PhD, he joined Springdale Preparatory School as a full-time teacher, where he also earned his International Baccalaureate (IB) Category 1 certification in Mathematics: Applications and Interpretation. Since 2011, Dr. Hagverdiyev has served as a full-time lecturer at the University of Miami.
-          </p>
-        </section>
-      </main>
-
-      <!-- Right Column Image -->
-      <aside class="profile-column">
-        <figure>
-          <img src="pic_link.jpg" alt="Dr. Ali Hagverdiyev">
-          <figcaption>The Roman Baths, Bath, UK</figcaption>
-        </figure>
-      </aside>
-
-    </div>
-
-    <!-- Clean Institutional Footer -->
-    <footer class="site-footer">
-      &copy; Dr. Ali Hagverdiyev &bull; Department of Mathematics, University of Miami
-    </footer>
-  </div>
-
-</body>
-</html>
+          <li>
+            <a href="index.html" class="active">
+              <span class="l-en">Bio</span>
+              <span class="l-az">Bioqrafiya</span>
+              <span class="l-tr">Biyografi</span>
+              <span class="l-ru">Биография</span>
+              <span class="l-es">Biografía</span>
+            </a>
+          </li>
+          <li>
+            <a href="OfficeHours.html">
+              <span class="l-en">Office Hours</span>
+              <span class="l-az">Ofis Saatları</span>
+              <span class="l-tr">Ofis Saatleri</span>
+              <span class="l-ru">Часы приёма</span>
+              <span class="l-es">Horas de Oficina</span>
+            </a>
+          </li>
+          <li>
+            <a href="Publications.html">
+              <span class="l-en">Publications</span>
+              <span class="l-az">Nəşrlər</span>
+              <span class="l-tr">Yayınlar</span>
+              <span class="l-ru">Публикации</span>
+              <span class="l-es">Publicaciones</span>
+            </a>
+          </li>
+          <li>
+            <a href="Conferences.html">
+              <span class="l-en">Conferences</span>
+              <span class="l-az">Konfranslar</span>
+              <span class="l-tr">Konferanslar</span>
+              <span class="l-ru">Конференции</span>
+              <span class="l-es">Conferencias</span>
+            </a>
+          </li>
+          <li>
+            <a href="Teaching.html">
+              <span class="l-en">Teaching</span>
